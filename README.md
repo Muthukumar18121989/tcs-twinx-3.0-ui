@@ -17,6 +17,8 @@ and anything new they make can come back into the library.
 
 You need Node 18+, git access to this repo, and (to contribute) the GitHub CLI `gh`.
 
+On Windows, install [Git](https://git-scm.com/download/win) and [Node.js LTS](https://nodejs.org) first (or `winget install --id Git.Git -e` and `winget install --id OpenJS.NodeJS.LTS -e`), reopen the terminal, and run commands one per line: Windows PowerShell 5 does not accept `&&`. To view the catalog use `npx serve .` and open `/ui/catalog.html`.
+
 ```sh
 # in the root of your own repo
 npx github:Muthukumar18121989/tcs-twinx-3.0-ui#v1.0.1 sync
