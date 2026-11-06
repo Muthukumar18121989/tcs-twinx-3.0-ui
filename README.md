@@ -19,7 +19,7 @@ You need Node 18+, git access to this repo, and (to contribute) the GitHub CLI `
 
 ```sh
 # in the root of your own repo
-npx github:Muthukumar18121989/tcs-twinx-3.0-ui#v1.0.0 sync
+npx github:Muthukumar18121989/tcs-twinx-3.0-ui#v1.0.1 sync
 ```
 
 That adds:

@@ -21,6 +21,7 @@ let r = run(CLI, ['sync']);
 ok(r.status === 0, 'sync runs' + (r.status ? ': ' + r.stderr : ''));
 for (const f of ['ui/twinx/twinx.css', 'ui/twinx/js/twinx.js', 'ui/twinx/registry.json', 'ui/twinx/.manifest.json', 'ui/twinx/cli/bin/twinx-ui.mjs', 'ui/local/local.css', 'ui/local/registry.json', 'ui/catalog.html', '.claude/skills/twinx-ui/SKILL.md', '.claude/skills/twinx-ui/reference/components.md', '.agent/skills/twinx-ui/SKILL.md', '.agent/rules/twinx-ui.md', '.claude/settings.json', '.github/workflows/twinx-ui.yml', '.twinxignore', 'CLAUDE.md'])
   ok(fs.existsSync(path.join(dir, f)), `sync wrote ${f}`);
+ok(JSON.parse(fs.readFileSync(path.join(dir, 'ui/twinx/VERSION.json'), 'utf8')).repository === 'https://github.com/Muthukumar18121989/tcs-twinx-3.0-ui', 'VERSION.json records the full library repo URL (used by update and contribute)');
 const agents = fs.readFileSync(path.join(dir, 'AGENTS.md'), 'utf8');
 ok(agents.includes('Existing notes stay.') && agents.includes('twinx-ui:start'), 'AGENTS.md keeps existing text and gains the TwinX block');
 r = run(CLI, ['sync']);

@@ -34,7 +34,7 @@ function libVersion(root) {
 }
 function repoSlug(dir) {
   const r = pkgJson(dir).repository; const url = typeof r === 'string' ? r : r?.url || '';
-  const m = url.match(/github\.com[/:]([^/]+\/[^/.]+)/); return m ? m[1] : 'Muthukumar18121989/tcs-twinx-3.0-ui';
+  const m = url.match(/github\.com[/:]([^/]+\/[^/]+?)(?:\.git)?\/?$/); return m ? m[1] : 'Muthukumar18121989/tcs-twinx-3.0-ui';
 }
 
 // ── build ────────────────────────────────────────────────────────────────
