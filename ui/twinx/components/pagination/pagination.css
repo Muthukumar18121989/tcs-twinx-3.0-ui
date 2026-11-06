@@ -1,0 +1,10 @@
+/* Pagination (CXO Paginator, mode pages) */
+.tx-pagination { display: flex; align-items: center; flex-wrap: wrap; gap: 4px; }
+.tx-pagination__arrow, .tx-pagination__page {
+  display: grid; place-items: center; min-width: 28px; height: 28px; padding: 0 6px; border-radius: var(--rad-sm); border: 1px solid transparent;
+  font: 600 12px/1 var(--font); color: var(--c-muted); background: transparent; cursor: pointer;
+}
+.tx-pagination__arrow:hover, .tx-pagination__page:hover { background: var(--c-ink-tint2); color: var(--c-ink); }
+.tx-pagination__arrow:disabled { opacity: .35; cursor: not-allowed; background: transparent; }
+.tx-pagination__page[aria-current="page"] { background: var(--c-card); border-color: var(--c-gold); box-shadow: var(--shadow-1); color: var(--c-ink); }
+.tx-pagination__gap { min-width: 20px; text-align: center; color: var(--c-faint); }

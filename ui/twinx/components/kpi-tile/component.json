@@ -1,0 +1,35 @@
+{
+  "name": "kpi-tile",
+  "title": "KPI tile",
+  "category": "Data display",
+  "description": "A single figure with a micro label and an optional change indicator. Tiles sit in a row inside a summary card.",
+  "whenToUse": "Headline numbers (volume, uplift, budget). Put several in a tx-kpi-row. Tiles inside a summary card are the one allowed exception to 'no box in a box'.",
+  "variants": [
+    {
+      "class": "tx-kpi-row",
+      "description": "Responsive row of tiles."
+    },
+    {
+      "class": "tx-kpi__delta--up",
+      "description": "Positive change (green)."
+    },
+    {
+      "class": "tx-kpi__delta--down",
+      "description": "Negative change (red)."
+    },
+    {
+      "class": "tx-kpi--accent",
+      "description": "Gold top edge, for the one figure that matters most."
+    }
+  ],
+  "a11y": "Say the direction in words too (for example '+4.2% vs last year'), not only with colour or an arrow.",
+  "replaces": [
+    ".rp-tile",
+    ".an-tile",
+    ".trend-tile",
+    ".rm-count"
+  ],
+  "status": "stable",
+  "since": "1.0.0",
+  "owner": "Muthu"
+}

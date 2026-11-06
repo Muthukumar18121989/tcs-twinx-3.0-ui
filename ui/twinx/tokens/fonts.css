@@ -1,0 +1,62 @@
+/* Self-hosted typefaces (no Google Fonts request, works offline and behind a strict CSP).
+   The woff2 files live in ./assets/fonts, inside this folder, so the design system can be copied to another app as is
+   (no @fontsource npm packages needed). All five families are SIL Open Font License 1.1.
+
+   Only the Latin subset of each variable font is bundled (~35-50 KB each, ~200 KB total, inlined into the single-file
+   build). A variable font holds every weight in one file, so the presets below need no per-weight downloads. The
+   browser decodes a face only when text actually uses it, so an unused preset's font costs bytes, not render time.
+
+   Presets are chosen per firm and applied by setting  <html data-cxo-font="...">  (see tokens/typography.js
+   -> applyFontPreset). The same attribute on any element scopes a preset to that subtree (used for the previews). The tokens FONT / DISP / TITLE in tokens/typography.js are `var(--cxo-font-*)`, so switching
+   the attribute restyles every mounted screen instantly: no re-render, no remount, no reload. */
+
+@font-face { font-family: "CXO Plex"; font-style: normal; font-weight: 100 700; font-display: swap;
+  src: url("fonts/ibm-plex-sans-latin-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "CXO Archivo"; font-style: normal; font-weight: 100 900; font-display: swap;
+  src: url("fonts/archivo-latin-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "CXO Cormorant"; font-style: normal; font-weight: 300 700; font-display: swap;
+  src: url("fonts/cormorant-garamond-latin-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "CXO Cormorant"; font-style: italic; font-weight: 300 700; font-display: swap;
+  src: url("fonts/cormorant-garamond-latin-wght-italic.woff2") format("woff2-variations");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "CXO Inter"; font-style: normal; font-weight: 100 900; font-display: swap;
+  src: url("fonts/inter-latin-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "CXO Nunito"; font-style: normal; font-weight: 200 1000; font-display: swap;
+  src: url("fonts/nunito-latin-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+/* ── presets ───────────────────────────────────────────────────────────────
+   body    = running text, labels, tables          display = UI headings, numbers, card titles
+   title   = big page / section / dialog headings  (weight / scale / tracking tuned per face)
+   The default (no attribute yet) is "editorial". */
+:root,
+[data-cxo-font="editorial"] {
+  --cxo-font-body: "CXO Plex", "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --cxo-font-display: "CXO Archivo", "CXO Plex", "IBM Plex Sans", -apple-system, sans-serif;
+  --cxo-font-title: "CXO Cormorant", "Cormorant Garamond", "Iowan Old Style", "Times New Roman", Georgia, serif;
+  --cxo-title-weight: 500;
+  --cxo-title-scale: 1.16;          /* Cormorant sets small for its point size: enlarge to match the sans headings' presence */
+  --cxo-title-tracking: -0.005em;
+}
+[data-cxo-font="classic"] {
+  --cxo-font-body: "CXO Plex", "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --cxo-font-display: "CXO Archivo", "CXO Plex", "IBM Plex Sans", -apple-system, sans-serif;
+  --cxo-font-title: "CXO Archivo", "CXO Plex", "IBM Plex Sans", -apple-system, sans-serif;
+  --cxo-title-weight: 600;
+  --cxo-title-scale: 1;
+  --cxo-title-tracking: -0.015em;
+}
+[data-cxo-font="modern"] {
+  --cxo-font-body: "CXO Inter", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --cxo-font-display: "CXO Inter", "Inter", -apple-system, sans-serif;
+  --cxo-font-title: "CXO Inter", "Inter", -apple-system, sans-serif;
+  --cxo-title-weight: 600;
+  --cxo-title-scale: 1;
+  --cxo-title-tracking: -0.022em;
+}
+/* Brand wordmark stays Nunito in every preset (bundled above, so it no longer needs the network). */
+:root { --cxo-font-brand: "CXO Nunito", "Nunito", "Segoe UI", sans-serif; }

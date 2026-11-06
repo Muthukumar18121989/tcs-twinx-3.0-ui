@@ -1,0 +1,49 @@
+{
+  "name": "badge",
+  "title": "Badge",
+  "category": "Status",
+  "description": "A small tinted pill with a dot that shows a status: approved, pending, in progress, rejected, draft.",
+  "whenToUse": "Statuses in tables, cards and headers. Not for actions (use a button) and not for counts on icons (use tx-count).",
+  "variants": [
+    {
+      "class": "tx-badge--neutral",
+      "description": "Draft, unknown, archived."
+    },
+    {
+      "class": "tx-badge--progress",
+      "description": "In progress, running (gold)."
+    },
+    {
+      "class": "tx-badge--pending",
+      "description": "Waiting, needs action (amber)."
+    },
+    {
+      "class": "tx-badge--success",
+      "description": "Approved, done, valid (green)."
+    },
+    {
+      "class": "tx-badge--danger",
+      "description": "Rejected, failed, error (red)."
+    },
+    {
+      "class": "tx-badge--info",
+      "description": "Iteration, version, tag (brand, no dot)."
+    },
+    {
+      "class": "tx-count",
+      "description": "Round number on an icon button (notifications)."
+    }
+  ],
+  "a11y": "The status must be in the text, never only in the colour.",
+  "replaces": [
+    ".badge",
+    ".badge--progress",
+    ".badge--pending",
+    ".badge--iteration",
+    ".pr-badge",
+    ".notif__count"
+  ],
+  "status": "stable",
+  "since": "1.0.0",
+  "owner": "Muthu"
+}

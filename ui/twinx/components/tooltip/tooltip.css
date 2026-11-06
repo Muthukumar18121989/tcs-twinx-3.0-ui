@@ -1,0 +1,9 @@
+/* Tooltip: add data-tx-tooltip="Text" to any element */
+[data-tx-tooltip] { position: relative; }
+[data-tx-tooltip]::after {
+  content: attr(data-tx-tooltip); position: absolute; left: 50%; top: calc(100% + 6px); z-index: var(--z-dropdown); transform: translateX(-50%);
+  display: none; padding: 5px 9px; background: var(--c-nav-bg); border-radius: var(--rad-sm); box-shadow: var(--shadow-2);
+  font: 500 11px/1.4 var(--font); letter-spacing: .01em; color: var(--c-on-dark); white-space: nowrap; pointer-events: none;
+}
+[data-tx-tooltip-pos="top"]::after { top: auto; bottom: calc(100% + 6px); }
+[data-tx-tooltip]:hover::after, [data-tx-tooltip]:focus-visible::after { display: block; }

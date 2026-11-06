@@ -1,0 +1,53 @@
+{
+  "name": "data-table",
+  "title": "Data table",
+  "category": "Data display",
+  "description": "Sticky uppercase header, hairline rows, gold row hover, numeric columns right-aligned. The wrapper scrolls sideways with a visible scrollbar on wide tables.",
+  "whenToUse": "Any tabular data. Put it in a card with tx-card__body--flush, add tx-pagination in the card footer. Use tx-table--dense for long lists and tx-table--lines for column lines.",
+  "variants": [
+    {
+      "class": "tx-table-wrap",
+      "description": "Scrolling frame. Set --tx-table-h to fix the height (sticky header scrolls inside)."
+    },
+    {
+      "class": "tx-table--dense",
+      "description": "Shorter rows (32px)."
+    },
+    {
+      "class": "tx-table--lines",
+      "description": "Column lines; headers are centred."
+    },
+    {
+      "class": "tx-table--zebra",
+      "description": "Alternate row tint."
+    },
+    {
+      "class": "is-num",
+      "description": "Cell class: right-aligned tabular figures (header follows)."
+    },
+    {
+      "class": "is-center",
+      "description": "Cell class: centred."
+    },
+    {
+      "class": "is-selected",
+      "description": "Row class: selected row."
+    },
+    {
+      "class": "tx-table__sticky-col",
+      "description": "First column frozen while scrolling sideways."
+    }
+  ],
+  "a11y": "Use <th scope=\"col\">. Give the table a <caption> (it can be visually hidden with tx-sr-only). Sortable headers use a button inside the th and aria-sort on the th.",
+  "replaces": [
+    ".table-wrap",
+    ".ad-table-wrap",
+    ".rp-table-wrap",
+    ".vs-table-wrap",
+    ".wf-table-wrap",
+    ".cmp-metrics"
+  ],
+  "status": "stable",
+  "since": "1.0.0",
+  "owner": "Muthu"
+}

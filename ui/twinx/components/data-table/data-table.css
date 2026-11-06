@@ -1,0 +1,38 @@
+/* Data table (CXO tables/DataTable) */
+.tx-table-wrap {
+  max-height: var(--tx-table-h, none); overflow: auto; min-width: 0;
+  background: var(--c-card); border: 1px solid var(--c-line); border-radius: var(--rad-md); box-shadow: var(--shadow-1);
+  scrollbar-width: auto; scrollbar-color: var(--c-faint) var(--c-ink-tint2);
+}
+.tx-table-wrap::-webkit-scrollbar { width: 10px; height: 10px; }
+.tx-table-wrap::-webkit-scrollbar-thumb { background: var(--c-faint); border: 2px solid var(--c-card); }
+.tx-table-wrap::-webkit-scrollbar-track { background: var(--c-ink-tint2); }
+.tx-table { width: 100%; border-collapse: separate; border-spacing: 0; font: 400 var(--t-body)/1.4 var(--font); color: var(--c-ink); }
+.tx-table caption { text-align: left; }
+.tx-table th {
+  position: sticky; top: 0; z-index: 1; height: 40px; padding: 8px 12px; vertical-align: middle; text-align: left;
+  background: var(--c-card); border-bottom: 1px solid var(--c-line);
+  font: 800 9.5px/1.35 var(--font); letter-spacing: .12em; text-transform: uppercase; color: var(--c-muted); white-space: nowrap;
+}
+.tx-table td { height: 44px; padding: 8px 12px; vertical-align: middle; border-bottom: 1px solid var(--c-line); white-space: nowrap; }
+.tx-table tbody tr:last-child td { border-bottom: 0; }
+.tx-table tbody tr { transition: background var(--m-fast) var(--ease); }
+.tx-table tbody tr:hover > td { background: var(--c-gold-hover); }
+.tx-table tbody tr.is-selected > td { background: var(--c-gold-tint); }
+.tx-table .is-num { text-align: right; font-variant-numeric: tabular-nums; }
+.tx-table .is-center { text-align: center; }
+.tx-table .is-muted { color: var(--c-muted); }
+.tx-table .is-strong { font-weight: 600; }
+.tx-table .is-wrap { white-space: normal; min-width: 200px; }
+.tx-table--dense td { height: 32px; padding-top: 4px; padding-bottom: 4px; }
+.tx-table--zebra tbody tr:nth-child(even) > td { background: var(--c-ink-tint); }
+.tx-table--lines th, .tx-table--lines td { border-right: 1px solid var(--c-line); }
+.tx-table--lines :is(th, td):last-child { border-right: 0; }
+.tx-table--lines th { text-align: center; white-space: normal; }
+.tx-table__sticky-col { position: sticky; left: 0; z-index: 1; background: var(--c-card); box-shadow: inset -1px 0 0 var(--c-line); }
+.tx-table th.tx-table__sticky-col { z-index: 2; }
+.tx-table th button { display: inline-flex; align-items: center; gap: 4px; font: inherit; letter-spacing: inherit; text-transform: inherit; color: inherit; }
+.tx-table th[aria-sort] button::after { content: ""; width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent; border-top: 5px solid currentColor; }
+.tx-table th[aria-sort="ascending"] button::after { transform: rotate(180deg); }
+.tx-table th[aria-sort="ascending"], .tx-table th[aria-sort="descending"] { color: var(--c-ink); }
+.tx-table__empty { padding: var(--s-xxl) var(--s-lg); text-align: center; color: var(--c-muted); white-space: normal; }

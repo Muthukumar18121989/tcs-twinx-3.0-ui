@@ -1,0 +1,42 @@
+{
+  "name": "modal",
+  "title": "Modal dialog",
+  "category": "Overlays",
+  "description": "Centred card on a dimmed, blurred backdrop with a gold top edge. Built on the native <dialog> element.",
+  "whenToUse": "Confirmations, short forms and details that need focus. Not for long flows (use a page). One primary button in the footer, on the right.",
+  "variants": [
+    {
+      "class": "tx-modal--sm",
+      "description": "420px, confirmations."
+    },
+    {
+      "class": "tx-modal--md",
+      "description": "560px, default."
+    },
+    {
+      "class": "tx-modal--lg",
+      "description": "760px, forms and tables."
+    },
+    {
+      "class": "data-tx-open / data-tx-close",
+      "description": "Attributes that open and close a dialog with twinx.js, no page script needed."
+    }
+  ],
+  "a11y": "Native <dialog> with showModal() traps focus and closes on Escape. Give it aria-labelledby pointing at the title.",
+  "replaces": [
+    ".ad-dialog",
+    ".es-dialog",
+    ".fam-dialog",
+    ".new-promo",
+    ".pp-panel",
+    ".rp-download",
+    ".sa-dialog",
+    ".umn-dialog",
+    ".us-dialog",
+    ".wf-comments",
+    ".wh-dialog"
+  ],
+  "status": "stable",
+  "since": "1.0.0",
+  "owner": "Muthu"
+}

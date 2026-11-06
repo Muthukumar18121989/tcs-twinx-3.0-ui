@@ -1,0 +1,19 @@
+/* Modal (CXO ops/Modal) */
+.tx-modal {
+  width: var(--modal-md); max-width: calc(100vw - 32px); max-height: calc(100vh - 32px); padding: 0; overflow: auto;
+  color: var(--c-ink); border: 1px solid var(--c-line); border-radius: var(--rad-lg); box-shadow: var(--shadow-3);
+  background-color: var(--c-card); background-image: var(--gold-foil); background-size: 100% 3px; background-repeat: no-repeat;
+}
+.tx-modal[open] { animation: tx-fade-in var(--m-base) var(--ease); }
+.tx-modal::backdrop { background: var(--scrim); backdrop-filter: blur(3px); }
+.tx-modal--sm { width: var(--modal-sm); }
+.tx-modal--md { width: var(--modal-md); }
+.tx-modal--lg { width: var(--modal-lg); }
+.tx-modal__head { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--s-lg); padding: var(--s-xl) var(--s-xl) var(--s-md); }
+.tx-modal__title {
+  margin: 0; font-family: var(--title); font-weight: var(--cxo-title-weight); letter-spacing: var(--cxo-title-tracking);
+  font-size: calc(22px * var(--cxo-title-scale)); line-height: 1.2; color: var(--c-ink);
+}
+.tx-modal__subtitle { margin-top: 4px; font: 400 var(--t-small)/1.5 var(--font); color: var(--c-muted); }
+.tx-modal__body { padding: 0 var(--s-xl) var(--s-xl); }
+.tx-modal__foot { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: var(--s-sm); padding: var(--s-lg) var(--s-xl); border-top: 1px solid var(--c-line); background: var(--c-ink-tint); }

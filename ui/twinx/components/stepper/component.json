@@ -1,0 +1,26 @@
+{
+  "name": "stepper",
+  "title": "Stepper",
+  "category": "Navigation",
+  "description": "Compact step indicator for multi-step flows: done steps show a green check, the current step is a raised pill, upcoming steps are muted.",
+  "whenToUse": "Wizards such as create promotion → configure → simulate → submit. Put it in the page header actions or above the form.",
+  "variants": [
+    {
+      "class": "tx-stepper__step--done",
+      "description": "Completed step."
+    },
+    {
+      "class": "tx-stepper__step--current",
+      "description": "Current step (set aria-current=\"step\")."
+    }
+  ],
+  "a11y": "Use an <ol>. Mark the current step with aria-current=\"step\". Done steps can be links back.",
+  "replaces": [
+    ".stepper",
+    ".stepper__step",
+    ".stepper__item"
+  ],
+  "status": "stable",
+  "since": "1.0.0",
+  "owner": "Muthu"
+}

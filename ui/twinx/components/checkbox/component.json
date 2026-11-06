@@ -1,0 +1,35 @@
+{
+  "name": "checkbox",
+  "title": "Checkbox, radio and switch",
+  "category": "Forms",
+  "description": "Themed checkbox, radio and on/off switch, each with its label in one clickable row.",
+  "whenToUse": "Checkbox for independent options and table row selection; radio for one choice out of a few; switch for a setting that applies at once.",
+  "variants": [
+    {
+      "class": "tx-check",
+      "description": "Checkbox with label."
+    },
+    {
+      "class": "tx-radio",
+      "description": "Radio with label."
+    },
+    {
+      "class": "tx-switch",
+      "description": "On/off switch with label."
+    },
+    {
+      "class": "tx-choice-group",
+      "description": "Vertical or horizontal group with a legend."
+    }
+  ],
+  "a11y": "Use native inputs inside a <label>. Group radios in a <fieldset> with a <legend>. A switch is <input type=\"checkbox\" role=\"switch\">.",
+  "replaces": [
+    ".checkbox",
+    ".fam-check",
+    ".msrp-check",
+    ".pp-toggle"
+  ],
+  "status": "stable",
+  "since": "1.0.0",
+  "owner": "Muthu"
+}

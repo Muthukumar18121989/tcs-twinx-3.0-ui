@@ -1,0 +1,20 @@
+/* Layout helpers and icons: space components with these instead of page CSS */
+/* stroke icons (Lucide style): <svg class="tx-icon" viewBox="0 0 24 24">…</svg> */
+.tx-icon { width: 16px; height: 16px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.tx-icon--sm { width: 14px; height: 14px; }
+.tx-icon--lg { width: 20px; height: 20px; }
+
+/* layout helpers: use these for spacing between components instead of page CSS */
+.tx-stack { display: flex; flex-direction: column; gap: var(--s-lg); min-width: 0; }
+.tx-stack--sm { gap: var(--s-sm); }
+.tx-stack--xl { gap: var(--s-xl); }
+.tx-row { display: flex; align-items: center; flex-wrap: wrap; gap: var(--s-sm); min-width: 0; }
+.tx-row--between { justify-content: space-between; }
+.tx-row--end { justify-content: flex-end; }
+.tx-grid { display: grid; gap: var(--s-lg); grid-template-columns: repeat(auto-fit, minmax(var(--tx-grid-min, 220px), 1fr)); }
+.tx-grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.tx-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 899px) { .tx-grid--2, .tx-grid--3 { grid-template-columns: minmax(0, 1fr); } }
+.tx-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.tx-muted { color: var(--c-muted); }
+.tx-num { font-variant-numeric: tabular-nums; text-align: right; }

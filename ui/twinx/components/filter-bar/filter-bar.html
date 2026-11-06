@@ -1,0 +1,12 @@
+<!-- @example: Filters above a table -->
+<form class="tx-filter-bar" role="search" onsubmit="return false">
+  <div class="tx-filter-bar__fields">
+    <div class="tx-field"><label class="tx-field__label" for="fb-brand">Brand</label><select class="tx-select" id="fb-brand"><option>All brands</option><option>Peugeot</option><option>Fiat</option></select></div>
+    <div class="tx-field"><label class="tx-field__label" for="fb-market">Market</label><select class="tx-select" id="fb-market"><option>All markets</option><option>France</option></select></div>
+    <div class="tx-field"><label class="tx-field__label" for="fb-q">Search</label><div class="tx-input-group"><svg class="tx-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><input id="fb-q" type="search" placeholder="Promotion name or ID"></div></div>
+  </div>
+  <div class="tx-filter-bar__actions">
+    <button type="reset" class="tx-btn tx-btn--ghost">Reset</button>
+    <button type="submit" class="tx-btn tx-btn--primary">Apply</button>
+  </div>
+</form>

@@ -1,0 +1,27 @@
+{
+  "name": "pagination",
+  "title": "Pagination",
+  "category": "Navigation",
+  "description": "Page numbers with previous and next arrows; the current page has a gold border. Wraps on phones.",
+  "whenToUse": "Under a table, usually in the card footer next to a 'Showing x of y' summary.",
+  "variants": [
+    {
+      "class": "tx-pagination__page[aria-current=page]",
+      "description": "Current page."
+    },
+    {
+      "class": "tx-pagination__gap",
+      "description": "Ellipsis between page ranges."
+    }
+  ],
+  "a11y": "Wrap in <nav aria-label=\"Pages\">. Mark the current page with aria-current=\"page\". Arrows need aria-label.",
+  "replaces": [
+    ".pagination",
+    ".pagination__page",
+    ".pagination__arrow",
+    ".table-footer"
+  ],
+  "status": "stable",
+  "since": "1.0.0",
+  "owner": "Muthu"
+}

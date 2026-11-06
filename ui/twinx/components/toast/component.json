@@ -1,0 +1,26 @@
+{
+  "name": "toast",
+  "title": "Toast",
+  "category": "Feedback",
+  "description": "A short message that slides in at the bottom right and fades after a few seconds. Also an inline alert for messages that stay on the page.",
+  "whenToUse": "Toast: confirm an action that happened ('Saved', 'Submitted for approval'). Alert: a message that must stay visible (validation summary, warning about data).",
+  "variants": [
+    {
+      "class": "TwinX.toast(message, {tone})",
+      "description": "JavaScript call; tone is success, danger, info or warning."
+    },
+    {
+      "class": "tx-alert",
+      "description": "Inline message block."
+    },
+    {
+      "class": "tx-alert--success / --warning / --danger / --info",
+      "description": "Tone of the alert."
+    }
+  ],
+  "a11y": "The toast region is aria-live=\"polite\". Alerts that need immediate attention use role=\"alert\".",
+  "replaces": [],
+  "status": "stable",
+  "since": "1.0.0",
+  "owner": "Muthu"
+}

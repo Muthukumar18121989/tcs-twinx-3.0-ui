@@ -1,0 +1,43 @@
+{
+  "name": "tabs",
+  "title": "Tabs and segmented control",
+  "category": "Navigation",
+  "description": "A tinted track with the active tab raised on the card surface. The same look serves page tabs (switch panels) and segmented controls (switch a view or a filter).",
+  "whenToUse": "Tabs switch between panels of one page. A segmented control switches a view of the same data (Monthly / Quarterly). Up to about 6 options; the track scrolls sideways if it runs out of room.",
+  "variants": [
+    {
+      "class": "tx-tabs",
+      "description": "Tab list; panels are tx-tab-panel elements. Behaviour from twinx.js (data-tx-tabs)."
+    },
+    {
+      "class": "tx-segmented",
+      "description": "Same look, for radio-like view switches."
+    },
+    {
+      "class": "tx-tabs--line",
+      "description": "Underline style for tabs inside a card head."
+    },
+    {
+      "class": "tx-tab__count",
+      "description": "Small count after a tab label."
+    }
+  ],
+  "a11y": "role=\"tablist\" / \"tab\" / \"tabpanel\" with aria-selected and aria-controls. twinx.js adds arrow-key navigation. A segmented control uses aria-pressed on its buttons.",
+  "replaces": [
+    ".tabs",
+    ".tabs__list",
+    ".tab",
+    ".tab--active",
+    ".segments",
+    ".segment",
+    ".rp-tabs",
+    ".pd-tabs",
+    ".res-tabs",
+    ".art-tabs",
+    ".rf-tabs",
+    ".es-status"
+  ],
+  "status": "stable",
+  "since": "1.0.0",
+  "owner": "Muthu"
+}

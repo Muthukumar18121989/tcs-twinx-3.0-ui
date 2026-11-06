@@ -1,0 +1,41 @@
+{
+  "name": "app-shell",
+  "title": "App shell and menu bar",
+  "category": "Layout",
+  "description": "The page frame: a dark menu bar on the left (collapsed to 72px, opens in place on hover and pushes the content over, pin button keeps it open), a scrolling main column with tight padding, and a drawer below 900px. The theme picker lives in the menu bar footer.",
+  "whenToUse": "Every app page. Start from ui/patterns/page-template.html rather than writing the shell by hand. Change the brand badge, title and nav items only.",
+  "variants": [
+    {
+      "class": "tx-nav-item.is-active",
+      "description": "Current page in the menu (also set aria-current=\"page\")."
+    },
+    {
+      "class": "tx-sidebar__section",
+      "description": "Group label in the menu."
+    },
+    {
+      "class": "data-tx-theme-open",
+      "description": "Button that opens the colour theme menu (five CXO themes)."
+    },
+    {
+      "class": "html.is-nav-collapsed",
+      "description": "Collapsed state, set before first paint by the head script."
+    }
+  ],
+  "a11y": "The menu bar is an <aside aria-label=\"Main menu\"> with a <nav>. Collapsed items keep their label for screen readers (title + hidden text). Keyboard focus inside the collapsed menu opens it. The drawer closes on Escape.",
+  "replaces": [
+    ".page",
+    ".main",
+    ".sidebar",
+    ".nav-item",
+    ".sidebar__brand",
+    ".sidebar__footer",
+    ".profile",
+    ".lang",
+    ".mobile-bar",
+    ".theme-menu"
+  ],
+  "status": "stable",
+  "since": "1.0.0",
+  "owner": "Muthu"
+}

@@ -1,0 +1,25 @@
+# TCS TwinX 3.0 UI: checks every pull request against the library rules (written by twinx-ui sync).
+name: TwinX UI check
+on:
+  pull_request:
+    paths: ['**/*.html', '**/*.htm', '**/*.css', '**/*.scss', '**/*.vue', '**/*.jsx', '**/*.tsx', 'ui/**']
+jobs:
+  twinx-ui:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Generated files are up to date
+        run: node ui/twinx/cli/bin/twinx-ui.mjs build --check
+      - name: Lint the files this pull request changes
+        run: node ui/twinx/cli/bin/twinx-ui.mjs lint --changed origin/${{ github.base_ref }}
+      - name: List local components to contribute
+        if: always()
+        run: |
+          if ls ui/local/components/*/component.json >/dev/null 2>&1; then
+            echo "### Local TwinX components" >> "$GITHUB_STEP_SUMMARY"
+            for f in ui/local/components/*/component.json; do echo "- $(dirname "$f" | xargs basename)" >> "$GITHUB_STEP_SUMMARY"; done
+            echo "Run \`node ui/twinx/cli/bin/twinx-ui.mjs contribute <name>\` to send them to the library." >> "$GITHUB_STEP_SUMMARY"
+          fi

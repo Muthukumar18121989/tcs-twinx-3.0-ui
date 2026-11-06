@@ -1,0 +1,28 @@
+<!-- @example: Tabs with panels -->
+<div data-tx-tabs>
+  <div class="tx-tabs" role="tablist" aria-label="Promotion views">
+    <button type="button" class="tx-tab" role="tab" id="t-ov" aria-controls="p-ov" aria-selected="true">Overview</button>
+    <button type="button" class="tx-tab" role="tab" id="t-pr" aria-controls="p-pr" aria-selected="false" tabindex="-1">Price <span class="tx-tab__count">4</span></button>
+    <button type="button" class="tx-tab" role="tab" id="t-vo" aria-controls="p-vo" aria-selected="false" tabindex="-1">Volume</button>
+  </div>
+  <div class="tx-tab-panel" role="tabpanel" id="p-ov" aria-labelledby="t-ov">Overview content.</div>
+  <div class="tx-tab-panel" role="tabpanel" id="p-pr" aria-labelledby="t-pr" hidden>Price content.</div>
+  <div class="tx-tab-panel" role="tabpanel" id="p-vo" aria-labelledby="t-vo" hidden>Volume content.</div>
+</div>
+
+<!-- @example: Segmented control -->
+<div class="tx-segmented" data-tx-segmented role="group" aria-label="Period">
+  <button type="button" aria-pressed="true">Monthly</button>
+  <button type="button" aria-pressed="false">Quarterly</button>
+  <button type="button" aria-pressed="false">Yearly</button>
+</div>
+
+<!-- @example: Underline tabs -->
+<div data-tx-tabs>
+  <div class="tx-tabs tx-tabs--line" role="tablist" aria-label="Report sections">
+    <button type="button" class="tx-tab" role="tab" id="l-a" aria-controls="lp-a" aria-selected="true">Summary</button>
+    <button type="button" class="tx-tab" role="tab" id="l-b" aria-controls="lp-b" aria-selected="false" tabindex="-1">Markets</button>
+  </div>
+  <div class="tx-tab-panel" role="tabpanel" id="lp-a" aria-labelledby="l-a">Summary content.</div>
+  <div class="tx-tab-panel" role="tabpanel" id="lp-b" aria-labelledby="l-b" hidden>Markets content.</div>
+</div>

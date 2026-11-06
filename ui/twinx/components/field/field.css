@@ -1,0 +1,33 @@
+/* Field (CXO forms/Field): uppercase micro label, 36px control, gold focus */
+.tx-field { display: flex; flex-direction: column; gap: 6px; min-width: 0; text-align: left; }
+.tx-field--inline { flex-direction: row; align-items: center; gap: var(--s-md); }
+.tx-field__label { font: 800 9px/1.3 var(--font); letter-spacing: .14em; text-transform: uppercase; color: var(--c-muted); }
+.tx-field__label .tx-req { color: var(--c-red); margin-left: 2px; }
+.tx-field__help { font: 400 var(--t-small)/1.4 var(--font); color: var(--c-muted); }
+.tx-field__error { display: none; font: 500 var(--t-small)/1.4 var(--font); color: var(--c-red); }
+.tx-field--error .tx-field__error { display: block; }
+.tx-field--error :is(.tx-input, .tx-select, .tx-textarea, .tx-input-group) { border-color: var(--c-red); }
+
+.tx-input, .tx-select, .tx-textarea, .tx-input-group {
+  width: 100%; min-width: 0; height: var(--control-h); padding: 0 12px;
+  background: var(--c-card); color: var(--c-ink2); border: 1px solid var(--c-line2); border-radius: var(--rad-sm);
+  font: 400 13px/1.3 var(--font);
+  transition: border-color var(--m-fast) var(--ease), box-shadow var(--m-fast) var(--ease);
+}
+.tx-textarea { height: auto; min-height: 88px; padding: 9px 12px; resize: vertical; line-height: 1.5; }
+.tx-input:hover, .tx-select:hover, .tx-textarea:hover, .tx-input-group:hover { border-color: var(--c-gold); }
+.tx-input:focus, .tx-select:focus, .tx-textarea:focus, .tx-input-group:focus-within { outline: none; border-color: var(--c-gold); box-shadow: 0 0 0 3px var(--c-gold-ring); }
+:is(.tx-input, .tx-textarea, .tx-input-group input)::placeholder { color: var(--c-faint); }
+:is(.tx-input, .tx-select, .tx-textarea):disabled { background: var(--c-ink-tint); color: var(--c-faint); cursor: not-allowed; }
+.tx-input--sm, .tx-select.tx-input--sm { height: var(--control-h-sm); padding: 0 8px; font-size: 12px; }
+.tx-input--num { text-align: right; font-variant-numeric: tabular-nums; }
+
+.tx-select {
+  appearance: none; -webkit-appearance: none; padding-right: 32px; cursor: pointer;
+  background-image: linear-gradient(45deg, transparent 50%, var(--c-muted) 50%), linear-gradient(135deg, var(--c-muted) 50%, transparent 50%);
+  background-position: calc(100% - 16px) 50%, calc(100% - 11px) 50%; background-size: 5px 5px; background-repeat: no-repeat;
+}
+.tx-input-group { display: flex; align-items: center; gap: 8px; }
+.tx-input-group input { flex: 1; min-width: 0; height: 100%; border: 0; padding: 0; background: transparent; color: inherit; font: inherit; outline: none; }
+.tx-input-group .tx-icon { color: var(--c-muted); width: 15px; height: 15px; }
+.tx-input-group__unit { font: 500 var(--t-small)/1 var(--font); color: var(--c-muted); }

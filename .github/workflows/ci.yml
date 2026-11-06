@@ -1,0 +1,24 @@
+name: Library check
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Generated files (twinx.css, registry, catalog, components.md) are up to date
+        run: node bin/twinx-ui.mjs build --check
+      - name: Tokens only, complete component folders
+        run: node bin/twinx-ui.mjs lint
+      - name: Sync into a sample project and lint it
+        run: node tools/test.mjs
+      - name: Changed components
+        if: github.event_name == 'pull_request'
+        run: |
+          git fetch --depth=1 origin ${{ github.base_ref }}
+          echo "### Components changed in this pull request" >> "$GITHUB_STEP_SUMMARY"
+          git diff --name-only origin/${{ github.base_ref }} -- ui/twinx/components | cut -d/ -f4 | sort -u | sed 's/^/- /' >> "$GITHUB_STEP_SUMMARY"

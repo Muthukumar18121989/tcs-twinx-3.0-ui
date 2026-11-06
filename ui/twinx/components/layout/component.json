@@ -1,0 +1,42 @@
+{
+  "name": "layout",
+  "title": "Layout helpers and icons",
+  "category": "Layout",
+  "description": "Stack, row and grid helpers that space components with the spacing tokens, the stroke icon class, and small utilities (screen-reader-only text, muted text, numbers).",
+  "whenToUse": "Spacing between components inside a card or page body. Use these before writing page CSS. Grids collapse to one column below 900px.",
+  "variants": [
+    {
+      "class": "tx-stack",
+      "description": "Vertical stack, 16px gap (--sm 8px, --xl 24px)."
+    },
+    {
+      "class": "tx-row",
+      "description": "Horizontal wrap row, 8px gap (--between, --end)."
+    },
+    {
+      "class": "tx-grid",
+      "description": "Auto-fit grid, min column --tx-grid-min (220px); --2 and --3 fixed columns."
+    },
+    {
+      "class": "tx-icon",
+      "description": "Stroke icon (Lucide style svg, viewBox 0 0 24 24); --sm 14px, --lg 20px."
+    },
+    {
+      "class": "tx-sr-only",
+      "description": "Visually hidden, read by screen readers."
+    },
+    {
+      "class": "tx-muted",
+      "description": "Muted text colour."
+    },
+    {
+      "class": "tx-num",
+      "description": "Right-aligned tabular figures."
+    }
+  ],
+  "a11y": "Icons inside buttons are aria-hidden; the button carries the label.",
+  "replaces": [],
+  "status": "stable",
+  "since": "1.0.0",
+  "owner": "Muthu"
+}

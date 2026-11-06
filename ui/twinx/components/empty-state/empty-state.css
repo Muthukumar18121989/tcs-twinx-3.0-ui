@@ -1,0 +1,9 @@
+/* Empty state */
+.tx-empty { display: flex; flex-direction: column; align-items: center; gap: var(--s-sm); padding: var(--s-xxxl) var(--s-lg); text-align: center; }
+.tx-empty__icon { display: grid; place-items: center; width: 48px; height: 48px; margin-bottom: var(--s-xs); border-radius: 50%; background: var(--c-gold-tint); color: var(--c-gold-dk); }
+.tx-empty__icon .tx-icon { width: 22px; height: 22px; }
+.tx-empty__title { margin: 0; font: 600 var(--t-lead)/1.3 var(--disp); color: var(--c-ink); }
+.tx-empty__text { max-width: 420px; font: 400 var(--t-body)/1.5 var(--font); color: var(--c-muted); }
+.tx-empty .tx-btn { margin-top: var(--s-sm); }
+.tx-empty--compact { padding: var(--s-xl) var(--s-md); }
+.tx-empty--compact .tx-empty__icon { width: 36px; height: 36px; }

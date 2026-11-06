@@ -1,0 +1,4 @@
+# Paths the TwinX lint skips (one per line, prefix match). Add legacy folders here while they are migrated.
+node_modules/
+dist/
+build/

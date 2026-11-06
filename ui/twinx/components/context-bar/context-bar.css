@@ -1,0 +1,13 @@
+/* Context bar (the navy band of facts) */
+.tx-context-bar {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 12px 20px; min-height: 64px; padding: 14px 18px; margin-bottom: var(--s-lg);
+  background: var(--nav-grad); color: var(--c-on-dark); border: 1px solid var(--nav-line); border-radius: var(--rad-lg); box-shadow: var(--shadow-2);
+}
+.tx-context-bar__facts { display: flex; flex-wrap: wrap; gap: 10px 28px; margin: 0; flex: 1 1 auto; min-width: 0; }
+.tx-context-bar__fact { min-width: 0; }
+.tx-context-bar__fact dt { margin-bottom: 3px; font: 700 9px/1.3 var(--font); letter-spacing: .16em; text-transform: uppercase; color: var(--nav-text-quiet); }
+.tx-context-bar__fact dd { margin: 0; font: 600 13px/1.4 var(--font); color: var(--c-on-dark); }
+.tx-context-bar .tx-btn:not(.tx-context-bar__chip) { background: var(--nav-fill); border-color: var(--nav-line); color: var(--c-on-dark); box-shadow: none; }
+.tx-context-bar .tx-btn:not(.tx-context-bar__chip):hover { background: var(--nav-fill-hover); }
+.tx-context-bar__chip { margin-left: auto; border: 0; background: var(--gold-foil); color: var(--c-nav-bg); font-weight: 700; box-shadow: none; }
+.tx-context-bar__chip:hover { background: var(--gold-foil); color: var(--c-nav-bg); filter: brightness(1.05); }

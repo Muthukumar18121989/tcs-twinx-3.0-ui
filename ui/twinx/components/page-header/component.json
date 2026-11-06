@@ -1,0 +1,35 @@
+{
+  "name": "page-header",
+  "title": "Page header",
+  "category": "Layout",
+  "description": "Breadcrumb, serif page title, a one-line lead and actions on the right. Every page starts with one.",
+  "whenToUse": "Top of every page, first child of tx-main. Put the page's main actions (or a stepper) in tx-page-header__actions. Use tx-kicker for a small gold label above a title.",
+  "variants": [
+    {
+      "class": "tx-breadcrumb",
+      "description": "Trail of links; the last item is the current page."
+    },
+    {
+      "class": "tx-kicker",
+      "description": "Gold rule and tracked uppercase label above a title."
+    },
+    {
+      "class": "tx-page-header__actions",
+      "description": "Buttons or a stepper, aligned to the bottom right; wraps below on narrow screens."
+    }
+  ],
+  "a11y": "One <h1> per page, here. The breadcrumb is a <nav aria-label=\"Breadcrumb\"> with aria-current=\"page\" on the last item.",
+  "replaces": [
+    ".page-header",
+    ".cfg-header",
+    ".res-header",
+    ".rp-header",
+    ".ad-header",
+    ".pd-header",
+    ".breadcrumb",
+    ".kicker"
+  ],
+  "status": "stable",
+  "since": "1.0.0",
+  "owner": "Muthu"
+}

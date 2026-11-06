@@ -1,0 +1,37 @@
+<!-- @example: Text input with help -->
+<div class="tx-field">
+  <label class="tx-field__label" for="f-name">Promotion name<span class="tx-req">*</span></label>
+  <input class="tx-input" id="f-name" type="text" placeholder="e.g. Spring offer 2027" required aria-describedby="f-name-help">
+  <p class="tx-field__help" id="f-name-help">Shown to approvers and in reports.</p>
+</div>
+
+<!-- @example: Select -->
+<div class="tx-field">
+  <label class="tx-field__label" for="f-market">Market</label>
+  <select class="tx-select" id="f-market"><option>France</option><option>Germany</option><option>Italy</option></select>
+</div>
+
+<!-- @example: Search and unit -->
+<div class="tx-grid">
+  <div class="tx-field">
+    <label class="tx-field__label" for="f-search">Search</label>
+    <div class="tx-input-group"><svg class="tx-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><input id="f-search" type="search" placeholder="Model, family or ID"></div>
+  </div>
+  <div class="tx-field">
+    <label class="tx-field__label" for="f-disc">Discount</label>
+    <div class="tx-input-group"><input id="f-disc" type="number" value="12" class="tx-num"><span class="tx-input-group__unit">%</span></div>
+  </div>
+</div>
+
+<!-- @example: Error state -->
+<div class="tx-field tx-field--error">
+  <label class="tx-field__label" for="f-budget">Budget</label>
+  <input class="tx-input tx-input--num" id="f-budget" type="text" value="-200" aria-invalid="true" aria-describedby="f-budget-err">
+  <p class="tx-field__error" id="f-budget-err">Budget must be a positive number.</p>
+</div>
+
+<!-- @example: Textarea -->
+<div class="tx-field">
+  <label class="tx-field__label" for="f-notes">Comment</label>
+  <textarea class="tx-textarea" id="f-notes" placeholder="Add a note for the approver"></textarea>
+</div>

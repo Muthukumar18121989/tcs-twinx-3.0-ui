@@ -1,0 +1,27 @@
+{
+  "name": "filter-bar",
+  "title": "Filter bar",
+  "category": "Forms",
+  "description": "A row of filter fields that grow to fill the width, with the search and reset actions at the end. Wraps on narrow screens.",
+  "whenToUse": "Above a table or list. Inside a card it sits flush with a hairline under it.",
+  "variants": [
+    {
+      "class": "tx-filter-bar__fields",
+      "description": "The fields; each tx-field inside grows from 160px."
+    },
+    {
+      "class": "tx-filter-bar__actions",
+      "description": "Buttons at the end."
+    }
+  ],
+  "a11y": "Wrap in <form role=\"search\"> when it filters results.",
+  "replaces": [
+    ".filters",
+    ".filters__fields",
+    ".filters__actions",
+    ".rp-filters"
+  ],
+  "status": "stable",
+  "since": "1.0.0",
+  "owner": "Muthu"
+}

@@ -1,0 +1,19 @@
+{
+  "name": "tcs-twinx-3.0-ui",
+  "version": "1.0.0",
+  "description": "TCS TwinX 3.0 UI: CXO design tokens, five themes, tx- components, a vibe-coding skill for Claude Code and Antigravity, and the twinx-ui command that syncs it into project repos.",
+  "type": "module",
+  "private": true,
+  "bin": { "twinx-ui": "bin/twinx-ui.mjs" },
+  "files": ["bin", "tools", "ui/twinx", "skill", "templates", "catalog.html", "README.md"],
+  "scripts": {
+    "build": "node bin/twinx-ui.mjs build",
+    "lint": "node bin/twinx-ui.mjs lint",
+    "check": "node bin/twinx-ui.mjs build --check && node bin/twinx-ui.mjs lint",
+    "test": "node tools/test.mjs",
+    "catalog": "python3 -m http.server 8000"
+  },
+  "repository": { "type": "git", "url": "https://github.com/Muthukumar18121989/tcs-twinx-3.0-ui.git" },
+  "engines": { "node": ">=18" },
+  "license": "UNLICENSED"
+}

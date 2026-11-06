@@ -1,0 +1,10 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      { "matcher": "Edit|MultiEdit|Write", "hooks": [{ "type": "command", "command": "node bin/twinx-ui.mjs hook post-edit", "timeout": 30 }] }
+    ],
+    "Stop": [
+      { "hooks": [{ "type": "command", "command": "node bin/twinx-ui.mjs hook stop", "timeout": 60 }] }
+    ]
+  }
+}

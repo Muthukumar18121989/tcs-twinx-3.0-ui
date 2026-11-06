@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!-- TCS TwinX 3.0 UI page pattern: copy this file to start a page. Keep the head, the shell and the script at the end;
+     change the brand, the menu items, the header and what is inside tx-main__body. Paths assume the page sits at the repo root. -->
+<html lang="en" data-cxo-theme="wallStreet" data-cxo-font="editorial">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A list of records: header actions, KPI summary, filter bar and a table card with pagination.">
+  <title>TwinX — List page</title>
+  <script>try{var d=document.documentElement,t=localStorage.getItem("twinx-theme");if(/^(wallStreet|onyx|porcelain|bordeaux|upsBrand)$/.test(t))d.setAttribute("data-cxo-theme",t);if(localStorage.getItem("twinx-nav-pinned")!=="1")d.classList.add("is-nav-collapsed")}catch(e){document.documentElement.classList.add("is-nav-collapsed")}</script>
+  <link rel="stylesheet" href="ui/twinx/twinx.css">
+  <link rel="stylesheet" href="ui/local/local.css">
+</head>
+<body>
+<div class="tx-app">
+  <aside class="tx-sidebar" id="tx-sidebar" aria-label="Main menu">
+    <div class="tx-sidebar__brand">
+      <span class="tx-sidebar__badge" aria-hidden="true">TX</span>
+      <span class="tx-sidebar__name"><span class="tx-sidebar__title">TwinX</span><span class="tx-sidebar__sub">TCS</span></span>
+      <button class="tx-sidebar__icon-btn" type="button" data-tx-nav-toggle aria-controls="tx-sidebar" aria-expanded="false" aria-label="Keep menu open"><svg class="tx-icon i-close" viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/></svg><svg class="tx-icon i-open" viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/><path d="m14 9 3 3-3 3"/></svg></button>
+    </div>
+    <div class="tx-sidebar__scroll">
+      <nav class="tx-sidebar__nav" aria-label="Primary">
+        <div class="tx-sidebar__section">Workspace</div>
+        <a class="tx-nav-item" href="index.html" title="Dashboard"><svg class="tx-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span class="tx-nav-item__label">Dashboard</span></a>
+        <a class="tx-nav-item is-active" aria-current="page" href="list.html" title="Promotions"><svg class="tx-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg><span class="tx-nav-item__label">Promotions</span></a>
+        <a class="tx-nav-item" href="users.html" title="Users"><svg class="tx-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span class="tx-nav-item__label">Users</span></a>
+        <a class="tx-nav-item" href="settings.html" title="Settings"><svg class="tx-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg><span class="tx-nav-item__label">Settings</span></a>
+      </nav>
+    </div>
+    <div class="tx-sidebar__footer">
+      <div class="tx-sidebar__utils">
+        <button class="tx-sidebar__icon-btn" type="button" aria-label="Notifications (3)" title="Notifications"><svg class="tx-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg><span class="tx-count">3</span></button>
+        <button class="tx-sidebar__icon-btn" type="button" data-tx-theme-open aria-haspopup="menu" aria-expanded="false" aria-label="Colour theme" title="Colour theme"><svg class="tx-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg></button>
+      </div>
+      <button class="tx-profile" type="button" title="Marcus Weber, Admin"><span class="tx-profile__avatar" aria-hidden="true">MW</span><span class="tx-profile__text"><span class="tx-profile__name">Marcus Weber</span><span class="tx-profile__role">Admin</span></span></button>
+    </div>
+  </aside>
+  <div class="tx-scrim" data-tx-nav-close hidden></div>
+
+  <div class="tx-main">
+    <div class="tx-mobile-bar">
+      <button class="tx-btn tx-btn--icon" type="button" data-tx-nav-open aria-label="Open menu" aria-controls="tx-sidebar"><svg class="tx-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16"/><path d="M4 6h16"/><path d="M4 18h16"/></svg></button>
+      <span class="tx-sidebar__badge" aria-hidden="true">TX</span><span class="tx-mobile-bar__title">TwinX</span>
+    </div>
+
+    <header class="tx-page-header">
+      <div class="tx-page-header__text">
+        <nav aria-label="Breadcrumb"><ol class="tx-breadcrumb"><li><a href="#">Home</a></li><li><span aria-current="page">Promotions</span></li></ol></nav>
+        <h1 class="tx-page-header__title">Promotions</h1>
+        <p class="tx-page-header__lead">All promotions across markets. Filter, open one, or create a new promotion.</p>
+      </div>
+      <div class="tx-page-header__actions"><button type="button" class="tx-btn"><svg class="tx-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>Export</button><button type="button" class="tx-btn tx-btn--primary"><svg class="tx-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg>New promotion</button></div>
+    </header>
+
+    <main class="tx-main__body">
+      <div class="tx-kpi-row">
+        <div class="tx-kpi tx-kpi--accent"><span class="tx-kpi__label">Active</span><span class="tx-kpi__value">24</span><span class="tx-kpi__delta tx-kpi__delta--up">+3 this month</span></div>
+        <div class="tx-kpi"><span class="tx-kpi__label">Pending approval</span><span class="tx-kpi__value">6</span><span class="tx-kpi__delta">2 overdue</span></div>
+        <div class="tx-kpi"><span class="tx-kpi__label">Volume</span><span class="tx-kpi__value">48.2k<span class="tx-kpi__unit">units</span></span><span class="tx-kpi__delta tx-kpi__delta--up">+4.2% vs last year</span></div>
+      </div>
+      <section class="tx-card" aria-labelledby="list-title">
+        <header class="tx-card__head"><div class="tx-card__titles"><h2 class="tx-card__title" id="list-title">All promotions</h2><p class="tx-card__subtitle">48 promotions</p></div></header>
+        <form class="tx-filter-bar" role="search" onsubmit="return false">
+          <div class="tx-filter-bar__fields">
+            <div class="tx-field"><label class="tx-field__label" for="f-market">Market</label><select class="tx-select" id="f-market"><option>All markets</option><option>France</option><option>Germany</option></select></div>
+            <div class="tx-field"><label class="tx-field__label" for="f-status">Status</label><select class="tx-select" id="f-status"><option>Any status</option><option>Approved</option><option>Pending</option></select></div>
+            <div class="tx-field"><label class="tx-field__label" for="f-q">Search</label><div class="tx-input-group"><svg class="tx-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><input id="f-q" type="search" placeholder="Name or ID"></div></div>
+          </div>
+          <div class="tx-filter-bar__actions"><button type="reset" class="tx-btn tx-btn--ghost">Reset</button><button type="submit" class="tx-btn tx-btn--primary">Apply</button></div>
+        </form>
+        <div class="tx-table-wrap">
+          <table class="tx-table">
+            <caption class="tx-sr-only">Promotions</caption>
+            <thead><tr><th scope="col" class="tx-table__sticky-col">ID</th><th scope="col">Name</th><th scope="col">Market</th><th scope="col">Status</th><th scope="col" class="is-num">Volume</th><th scope="col" class="is-num">Uplift</th><th scope="col" class="is-center">Action</th></tr></thead>
+            <tbody>
+            <tr><td class="tx-table__sticky-col is-muted">EXP-1042</td><td class="is-strong">Spring offer 2027</td><td>France</td><td><span class="tx-badge tx-badge--success">Approved</span></td><td class="is-num">12,480</td><td class="is-num">8.6%</td><td class="is-center"><button type="button" class="tx-btn tx-btn--ghost tx-btn--sm">Open</button></td></tr>
+            <tr><td class="tx-table__sticky-col is-muted">EXP-1041</td><td class="is-strong">Fleet bonus Q1</td><td>Germany</td><td><span class="tx-badge tx-badge--pending">Pending</span></td><td class="is-num">3,210</td><td class="is-num">4.1%</td><td class="is-center"><button type="button" class="tx-btn tx-btn--ghost tx-btn--sm">Open</button></td></tr>
+            <tr><td class="tx-table__sticky-col is-muted">EXP-1039</td><td class="is-strong">EV launch support</td><td>Italy</td><td><span class="tx-badge tx-badge--progress">In progress</span></td><td class="is-num">7,905</td><td class="is-num">11.2%</td><td class="is-center"><button type="button" class="tx-btn tx-btn--ghost tx-btn--sm">Open</button></td></tr>
+            <tr><td class="tx-table__sticky-col is-muted">EXP-1036</td><td class="is-strong">Dealer stock clearance</td><td>Spain</td><td><span class="tx-badge tx-badge--danger">Rejected</span></td><td class="is-num">1,140</td><td class="is-num">2.3%</td><td class="is-center"><button type="button" class="tx-btn tx-btn--ghost tx-btn--sm">Open</button></td></tr>
+            <tr><td class="tx-table__sticky-col is-muted">EXP-1031</td><td class="is-strong">Winter tyres bundle</td><td>France</td><td><span class="tx-badge tx-badge--neutral">Draft</span></td><td class="is-num">—</td><td class="is-num">—</td><td class="is-center"><button type="button" class="tx-btn tx-btn--ghost tx-btn--sm">Open</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <footer class="tx-card__foot">
+          <span class="tx-muted">Showing 1–5 of 48</span>
+          <nav class="tx-pagination" aria-label="Pages"><button type="button" class="tx-pagination__arrow" aria-label="Previous page" disabled><svg class="tx-icon tx-icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button><button type="button" class="tx-pagination__page" aria-current="page">1</button><button type="button" class="tx-pagination__page">2</button><span class="tx-pagination__gap">…</span><button type="button" class="tx-pagination__page">10</button><button type="button" class="tx-pagination__arrow" aria-label="Next page"><svg class="tx-icon tx-icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button></nav>
+        </footer>
+      </section>
+    </main>
+  </div>
+</div>
+<script src="ui/twinx/js/twinx.js"></script>
+<script src="ui/twinx/js/components.js"></script>
+</body>
+</html>

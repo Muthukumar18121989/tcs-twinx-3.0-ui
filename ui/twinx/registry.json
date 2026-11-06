@@ -1,0 +1,1035 @@
+{
+  "generatedBy": "twinx-ui build",
+  "version": "1.0.0",
+  "components": [
+    {
+      "name": "button",
+      "title": "Button",
+      "category": "Actions",
+      "status": "stable",
+      "origin": "library",
+      "description": "The one button for every action. Primary for the main action of a view, secondary for everything else, ghost for low-emphasis actions in toolbars, danger for destructive actions.",
+      "whenToUse": "Any clickable action. Use one primary button per view or dialog. Use an <a class=\"tx-btn\"> only when it navigates.",
+      "variants": [
+        {
+          "class": "tx-btn--primary",
+          "description": "Main action. Brand fill, lifts to the menu-bar colour on hover."
+        },
+        {
+          "class": "tx-btn--secondary",
+          "description": "Default action. Card surface, line border, gold on hover."
+        },
+        {
+          "class": "tx-btn--ghost",
+          "description": "Low emphasis, no border until hover."
+        },
+        {
+          "class": "tx-btn--danger",
+          "description": "Destructive action (delete, reject)."
+        },
+        {
+          "class": "tx-btn--icon",
+          "description": "Square icon-only button. Needs aria-label."
+        },
+        {
+          "class": "tx-btn--sm",
+          "description": "28px high, for tables and dense toolbars."
+        },
+        {
+          "class": "tx-btn--block",
+          "description": "Full width, for narrow forms and mobile."
+        }
+      ],
+      "a11y": "Use <button type=\"button\"> (or type=\"submit\" in forms). Icon-only buttons need aria-label. Disabled state uses the disabled attribute, not a class.",
+      "replaces": [
+        ".btn-primary",
+        ".btn-validate",
+        ".btn-next",
+        ".btn-create",
+        ".btn-outline",
+        ".btn-outline-icon",
+        ".btn-square",
+        ".icon-btn",
+        ".ad-btn",
+        ".pd-btn",
+        ".pp-btn",
+        ".rp-btn",
+        ".ub"
+      ],
+      "owner": "Muthu",
+      "since": "1.0.0",
+      "classes": [
+        "tx-btn",
+        "tx-icon",
+        "tx-btn--primary",
+        "tx-btn--secondary",
+        "tx-btn--ghost",
+        "tx-btn--danger",
+        "tx-btn--icon",
+        "tx-btn--sm",
+        "tx-btn--block",
+        "tx-btn-group",
+        "tx-btn-group--end"
+      ],
+      "examples": [
+        "Primary and secondary",
+        "With an icon",
+        "Ghost, danger and disabled",
+        "Icon-only and small"
+      ],
+      "path": "ui/twinx/components/button"
+    },
+    {
+      "name": "context-bar",
+      "title": "Context bar",
+      "category": "Data display",
+      "status": "stable",
+      "origin": "library",
+      "description": "One dark band of key facts about the record being viewed (promotion, market, period, owner), in the menu bar colours, with an optional gold action chip.",
+      "whenToUse": "Top of detail pages (result, workflow, logistics) to keep the record in view. One per page, under the page header.",
+      "variants": [
+        {
+          "class": "tx-context-bar__chip",
+          "description": "Gold action chip on the right."
+        }
+      ],
+      "a11y": "Facts are a <dl>: each fact is a <div> with <dt> label and <dd> value.",
+      "replaces": [
+        ".res-summary",
+        ".wf-summary",
+        ".vs-summary",
+        ".res-fact",
+        ".res-chip"
+      ],
+      "owner": "Muthu",
+      "since": "1.0.0",
+      "classes": [
+        "tx-context-bar",
+        "tx-context-bar__facts",
+        "tx-context-bar__fact",
+        "tx-btn",
+        "tx-context-bar__chip"
+      ],
+      "examples": [
+        "Promotion facts"
+      ],
+      "path": "ui/twinx/components/context-bar"
+    },
+    {
+      "name": "data-table",
+      "title": "Data table",
+      "category": "Data display",
+      "status": "stable",
+      "origin": "library",
+      "description": "Sticky uppercase header, hairline rows, gold row hover, numeric columns right-aligned. The wrapper scrolls sideways with a visible scrollbar on wide tables.",
+      "whenToUse": "Any tabular data. Put it in a card with tx-card__body--flush, add tx-pagination in the card footer. Use tx-table--dense for long lists and tx-table--lines for column lines.",
+      "variants": [
+        {
+          "class": "tx-table-wrap",
+          "description": "Scrolling frame. Set --tx-table-h to fix the height (sticky header scrolls inside)."
+        },
+        {
+          "class": "tx-table--dense",
+          "description": "Shorter rows (32px)."
+        },
+        {
+          "class": "tx-table--lines",
+          "description": "Column lines; headers are centred."
+        },
+        {
+          "class": "tx-table--zebra",
+          "description": "Alternate row tint."
+        },
+        {
+          "class": "is-num",
+          "description": "Cell class: right-aligned tabular figures (header follows)."
+        },
+        {
+          "class": "is-center",
+          "description": "Cell class: centred."
+        },
+        {
+          "class": "is-selected",
+          "description": "Row class: selected row."
+        },
+        {
+          "class": "tx-table__sticky-col",
+          "description": "First column frozen while scrolling sideways."
+        }
+      ],
+      "a11y": "Use <th scope=\"col\">. Give the table a <caption> (it can be visually hidden with tx-sr-only). Sortable headers use a button inside the th and aria-sort on the th.",
+      "replaces": [
+        ".table-wrap",
+        ".ad-table-wrap",
+        ".rp-table-wrap",
+        ".vs-table-wrap",
+        ".wf-table-wrap",
+        ".cmp-metrics"
+      ],
+      "owner": "Muthu",
+      "since": "1.0.0",
+      "classes": [
+        "tx-table-wrap",
+        "tx-table",
+        "tx-table--dense",
+        "tx-table--zebra",
+        "tx-table--lines",
+        "tx-table__sticky-col",
+        "tx-table__empty"
+      ],
+      "examples": [
+        "Table in a card with pagination",
+        "Dense table with column lines"
+      ],
+      "path": "ui/twinx/components/data-table"
+    },
+    {
+      "name": "kpi-tile",
+      "title": "KPI tile",
+      "category": "Data display",
+      "status": "stable",
+      "origin": "library",
+      "description": "A single figure with a micro label and an optional change indicator. Tiles sit in a row inside a summary card.",
+      "whenToUse": "Headline numbers (volume, uplift, budget). Put several in a tx-kpi-row. Tiles inside a summary card are the one allowed exception to 'no box in a box'.",
+      "variants": [
+        {
+          "class": "tx-kpi-row",
+          "description": "Responsive row of tiles."
+        },
+        {
+          "class": "tx-kpi__delta--up",
+          "description": "Positive change (green)."
+        },
+        {
+          "class": "tx-kpi__delta--down",
+          "description": "Negative change (red)."
+        },
+        {
+          "class": "tx-kpi--accent",
+          "description": "Gold top edge, for the one figure that matters most."
+        }
+      ],
+      "a11y": "Say the direction in words too (for example '+4.2% vs last year'), not only with colour or an arrow.",
+      "replaces": [
+        ".rp-tile",
+        ".an-tile",
+        ".trend-tile",
+        ".rm-count"
+      ],
+      "owner": "Muthu",
+      "since": "1.0.0",
+      "classes": [
+        "tx-kpi-row",
+        "tx-kpi",
+        "tx-kpi--accent",
+        "tx-kpi__label",
+        "tx-kpi__value",
+        "tx-kpi__unit",
+        "tx-kpi__delta",
+        "tx-kpi__delta--up",
+        "tx-kpi__delta--down"
+      ],
+      "examples": [
+        "Row of tiles"
+      ],
+      "path": "ui/twinx/components/kpi-tile"
+    },
+    {
+      "name": "empty-state",
+      "title": "Empty state",
+      "category": "Feedback",
+      "status": "stable",
+      "origin": "library",
+      "description": "Centred icon, one-line title, short help and an optional action, for a list or table with nothing in it yet.",
+      "whenToUse": "No data yet, no search results, or no permission. Say what to do next.",
+      "variants": [
+        {
+          "class": "tx-empty--compact",
+          "description": "Smaller, for inside a table cell or a small card."
+        }
+      ],
+      "a11y": "The icon is decorative (aria-hidden).",
+      "replaces": [],
+      "owner": "Muthu",
+      "since": "1.0.0",
+      "classes": [
+        "tx-empty",
+        "tx-empty__icon",
+        "tx-icon",
+        "tx-empty__title",
+        "tx-empty__text",
+        "tx-btn",
+        "tx-empty--compact"
+      ],
+      "examples": [
+        "No data yet"
+      ],
+      "path": "ui/twinx/components/empty-state"
+    },
+    {
+      "name": "toast",
+      "title": "Toast",
+      "category": "Feedback",
+      "status": "stable",
+      "origin": "library",
+      "description": "A short message that slides in at the bottom right and fades after a few seconds. Also an inline alert for messages that stay on the page.",
+      "whenToUse": "Toast: confirm an action that happened ('Saved', 'Submitted for approval'). Alert: a message that must stay visible (validation summary, warning about data).",
+      "variants": [
+        {
+          "class": "TwinX.toast(message, {tone})",
+          "description": "JavaScript call; tone is success, danger, info or warning."
+        },
+        {
+          "class": "tx-alert",
+          "description": "Inline message block."
+        },
+        {
+          "class": "tx-alert--success / --warning / --danger / --info",
+          "description": "Tone of the alert."
+        }
+      ],
+      "a11y": "The toast region is aria-live=\"polite\". Alerts that need immediate attention use role=\"alert\".",
+      "replaces": [],
+      "owner": "Muthu",
+      "since": "1.0.0",
+      "classes": [
+        "tx-toast-region",
+        "tx-toast",
+        "tx-toast--success",
+        "tx-toast--danger",
+        "tx-toast--warning",
+        "tx-alert",
+        "tx-icon",
+        "tx-alert--info",
+        "tx-alert__title",
+        "tx-alert--success",
+        "tx-alert--warning",
+        "tx-alert--danger"
+      ],
+      "examples": [
+        "Toast",
+        "Inline alerts"
+      ],
+      "path": "ui/twinx/components/toast"
+    },
+    {
+      "name": "checkbox",
+      "title": "Checkbox, radio and switch",
+      "category": "Forms",
+      "status": "stable",
+      "origin": "library",
+      "description": "Themed checkbox, radio and on/off switch, each with its label in one clickable row.",
+      "whenToUse": "Checkbox for independent options and table row selection; radio for one choice out of a few; switch for a setting that applies at once.",
+      "variants": [
+        {
+          "class": "tx-check",
+          "description": "Checkbox with label."
+        },
+        {
+          "class": "tx-radio",
+          "description": "Radio with label."
+        },
+        {
+          "class": "tx-switch",
+          "description": "On/off switch with label."
+        },
+        {
+          "class": "tx-choice-group",
+          "description": "Vertical or horizontal group with a legend."
+        }
+      ],
+      "a11y": "Use native inputs inside a <label>. Group radios in a <fieldset> with a <legend>. A switch is <input type=\"checkbox\" role=\"switch\">.",
+      "replaces": [
+        ".checkbox",
+        ".fam-check",
+        ".msrp-check",
+        ".pp-toggle"
+      ],
+      "owner": "Muthu",
+      "since": "1.0.0",
+      "classes": [
+        "tx-check",
+        "tx-radio",
+        "tx-switch",
+        "tx-choice-group",
+        "tx-choice-group--row"
+      ],
+      "examples": [
+        "Checkboxes",
+        "Radio group",
+        "Switch"
+      ],
+      "path": "ui/twinx/components/checkbox"
+    },
+    {
+      "name": "field",
+      "title": "Field",
+      "category": "Forms",
+      "status": "stable",
+      "origin": "library",
+      "description": "Label, control and help or error text for text inputs, selects, textareas and search boxes. 36px controls with a gold focus ring.",
+      "whenToUse": "Every form control. Wrap the control in tx-field so label, help and error stay consistent. Use tx-field--inline for a label beside the control.",
+      "variants": [
+        {
+          "class": "tx-input",
+          "description": "Text, number, email, password, date inputs."
+        },
+        {
+          "class": "tx-select",
+          "description": "Native select with the themed chevron."
+        },
+        {
+          "class": "tx-textarea",
+          "description": "Multi-line text."
+        },
+        {
+          "class": "tx-input-group",
+          "description": "Input with a leading icon or a trailing unit."
+        },
+        {
+          "class": "tx-field--error",
+          "description": "Red border and message; set aria-invalid on the control."
+        },
+        {
+          "class": "tx-input--sm",
+          "description": "28px control for tables and dense filters."
+        }
+      ],
+      "a11y": "Every control has a <label for>. Help and error text are linked with aria-describedby. Required fields use the required attribute and show '*' in the label.",
+      "replaces": [
+        ".field",
+        ".field__control",
+        ".ue-field",
+        ".pp-field",
+        ".uf__box",
+        ".cfg-input",
+        ".cfg-select",
+        ".text-input",
+        ".sa-input",
+        ".vol-input",
+        ".vs-input"
+      ],
+      "owner": "Muthu",
+      "since": "1.0.0",
+      "classes": [
+        "tx-field",
+        "tx-field--inline",
+        "tx-field__label",
+        "tx-req",
+        "tx-field__help",
+        "tx-field__error",
+        "tx-field--error",
+        "tx-input",
+        "tx-select",
+        "tx-textarea",
+        "tx-input-group",
+        "tx-input--sm",
+        "tx-input--num",
+        "tx-icon",
+        "tx-input-group__unit"
+      ],
+      "examples": [
+        "Text input with help",
+        "Select",
+        "Search and unit",
+        "Error state",
+        "Textarea"
+      ],
+      "path": "ui/twinx/components/field"
+    },
+    {
+      "name": "filter-bar",
+      "title": "Filter bar",
+      "category": "Forms",
+      "status": "stable",
+      "origin": "library",
+      "description": "A row of filter fields that grow to fill the width, with the search and reset actions at the end. Wraps on narrow screens.",
+      "whenToUse": "Above a table or list. Inside a card it sits flush with a hairline under it.",
+      "variants": [
+        {
+          "class": "tx-filter-bar__fields",
+          "description": "The fields; each tx-field inside grows from 160px."
+        },
+        {
+          "class": "tx-filter-bar__actions",
+          "description": "Buttons at the end."
+        }
+      ],
+      "a11y": "Wrap in <form role=\"search\"> when it filters results.",
+      "replaces": [
+        ".filters",
+        ".filters__fields",
+        ".filters__actions",
+        ".rp-filters"
+      ],
+      "owner": "Muthu",
+      "since": "1.0.0",
+      "classes": [
+        "tx-filter-bar",
+        "tx-filter-bar__fields",
+        "tx-field",
+        "tx-filter-bar__actions",
+        "tx-card"
+      ],
+      "examples": [
+        "Filters above a table"
+      ],
+      "path": "ui/twinx/components/filter-bar"
+    },
+    {
+      "name": "app-shell",
+      "title": "App shell and menu bar",
+      "category": "Layout",
+      "status": "stable",
+      "origin": "library",
+      "description": "The page frame: a dark menu bar on the left (collapsed to 72px, opens in place on hover and pushes the content over, pin button keeps it open), a scrolling main column with tight padding, and a drawer below 900px. The theme picker lives in the menu bar footer.",
+      "whenToUse": "Every app page. Start from ui/patterns/page-template.html rather than writing the shell by hand. Change the brand badge, title and nav items only.",
+      "variants": [
+        {
+          "class": "tx-nav-item.is-active",
+          "description": "Current page in the menu (also set aria-current=\"page\")."
+        },
+        {
+          "class": "tx-sidebar__section",
+          "description": "Group label in the menu."
+        },
+        {
+          "class": "data-tx-theme-open",
+          "description": "Button that opens the colour theme menu (five CXO themes)."
+        },
+        {
+          "class": "html.is-nav-collapsed",
+          "description": "Collapsed state, set before first paint by the head script."
+        }
+      ],
+      "a11y": "The menu bar is an <aside aria-label=\"Main menu\"> with a <nav>. Collapsed items keep their label for screen readers (title + hidden text). Keyboard focus inside the collapsed menu opens it. The drawer closes on Escape.",
+      "replaces": [
+        ".page",
+        ".main",
+        ".sidebar",
+        ".nav-item",
+        ".sidebar__brand",
+        ".sidebar__footer",
+        ".profile",
+        ".lang",
+        ".mobile-bar",
+        ".theme-menu"
+      ],
+      "owner": "Muthu",
+      "since": "1.0.0",
+      "classes": [
+        "tx-app",
+        "tx-main",
+        "tx-main__body",
+        "tx-sidebar",
+        "tx-icon",
+        "tx-sidebar__brand",
+        "tx-sidebar__badge",
+        "tx-sidebar__name",
+        "tx-sidebar__title",
+        "tx-sidebar__sub",
+        "tx-sidebar__icon-btn",
+        "tx-sidebar__scroll",
+        "tx-sidebar__nav",
+        "tx-sidebar__section",
+        "tx-nav-item",
+        "tx-nav-item__label",
+        "tx-sidebar__footer",
+        "tx-sidebar__utils",
+        "tx-profile",
+        "tx-profile__avatar",
+        "tx-profile__text",
+        "tx-profile__name",
+        "tx-profile__role",
+        "tx-mobile-bar",
+        "tx-scrim",
+        "tx-mobile-bar__title",
+        "tx-theme-menu",
+        "tx-theme-menu__title",
+        "tx-theme-menu__item",
+        "tx-theme-menu__swatch",
+        "tx-theme-menu__text",
+        "tx-theme-menu__check"
+      ],
+      "examples": [
+        "Menu bar (pinned open; hover peeks when collapsed)"
+      ],
+      "path": "ui/twinx/components/app-shell"
+    },
+    {
+      "name": "card",
+      "title": "Card",
+      "category": "Layout",
+      "status": "stable",
+      "origin": "library",
+      "description": "The one container for a block of content: a titled section with an optional toolbar, a body and a footer.",
+      "whenToUse": "Every block on a page. One container per block: never put a framed card inside another card. Tables, filter bars and forms inside a card sit flush (their frame is removed automatically).",
+      "variants": [
+        {
+          "class": "tx-card__head",
+          "description": "Title row with optional subtitle and actions on the right."
+        },
+        {
+          "class": "tx-card__body",
+          "description": "Padded content area."
+        },
+        {
+          "class": "tx-card__body--flush",
+          "description": "No padding, for tables that run edge to edge."
+        },
+        {
+          "class": "tx-card__foot",
+          "description": "Footer row (pagination, summary, actions)."
+        },
+        {
+          "class": "tx-card--elevated",
+          "description": "Slight gradient and deeper shadow, for hero blocks."
+        },
+        {
+          "class": "tx-section-title",
+          "description": "A heading for a group of cards, without a frame."
+        }
+      ],
+      "a11y": "Give the card's title an id and set aria-labelledby on the <section>.",
+      "replaces": [
+        ".card",
+        ".ad-card",
+        ".es-card",
+        ".res-card",
+        ".pd-card",
+        ".rp-card",
+        ".vs-card",
+        ".projects-card"
+      ],
+      "owner": "Muthu",
+      "since": "1.0.0",
+      "classes": [
+        "tx-card",
+        "tx-card--elevated",
+        "tx-card__head",
+        "tx-card__titles",
+        "tx-card__title",
+        "tx-card__subtitle",
+        "tx-card__actions",
+        "tx-card__body",
+        "tx-card__body--flush",
+        "tx-card__foot",
+        "tx-table-wrap",
+        "tx-filter-bar",
+        "tx-section-title",
+        "tx-section-title__text"
+      ],
+      "examples": [
+        "Titled card with actions",
+        "Section title over a group"
+      ],
+      "path": "ui/twinx/components/card"
+    },
+    {
+      "name": "layout",
+      "title": "Layout helpers and icons",
+      "category": "Layout",
+      "status": "stable",
+      "origin": "library",
+      "description": "Stack, row and grid helpers that space components with the spacing tokens, the stroke icon class, and small utilities (screen-reader-only text, muted text, numbers).",
+      "whenToUse": "Spacing between components inside a card or page body. Use these before writing page CSS. Grids collapse to one column below 900px.",
+      "variants": [
+        {
+          "class": "tx-stack",
+          "description": "Vertical stack, 16px gap (--sm 8px, --xl 24px)."
+        },
+        {
+          "class": "tx-row",
+          "description": "Horizontal wrap row, 8px gap (--between, --end)."
+        },
+        {
+          "class": "tx-grid",
+          "description": "Auto-fit grid, min column --tx-grid-min (220px); --2 and --3 fixed columns."
+        },
+        {
+          "class": "tx-icon",
+          "description": "Stroke icon (Lucide style svg, viewBox 0 0 24 24); --sm 14px, --lg 20px."
+        },
+        {
+          "class": "tx-sr-only",
+          "description": "Visually hidden, read by screen readers."
+        },
+        {
+          "class": "tx-muted",
+          "description": "Muted text colour."
+        },
+        {
+          "class": "tx-num",
+          "description": "Right-aligned tabular figures."
+        }
+      ],
+      "a11y": "Icons inside buttons are aria-hidden; the button carries the label.",
+      "replaces": [],
+      "owner": "Muthu",
+      "since": "1.0.0",
+      "classes": [
+        "tx-icon",
+        "tx-icon--sm",
+        "tx-icon--lg",
+        "tx-stack",
+        "tx-stack--sm",
+        "tx-stack--xl",
+        "tx-row",
+        "tx-row--between",
+        "tx-row--end",
+        "tx-grid",
+        "tx-grid--2",
+        "tx-grid--3",
+        "tx-sr-only",
+        "tx-muted",
+        "tx-num"
+      ],
+      "examples": [
+        "Stack, row and grid",
+        "Icons"
+      ],
+      "path": "ui/twinx/components/layout"
+    },
+    {
+      "name": "page-header",
+      "title": "Page header",
+      "category": "Layout",
+      "status": "stable",
+      "origin": "library",
+      "description": "Breadcrumb, serif page title, a one-line lead and actions on the right. Every page starts with one.",
+      "whenToUse": "Top of every page, first child of tx-main. Put the page's main actions (or a stepper) in tx-page-header__actions. Use tx-kicker for a small gold label above a title.",
+      "variants": [
+        {
+          "class": "tx-breadcrumb",
+          "description": "Trail of links; the last item is the current page."
+        },
+        {
+          "class": "tx-kicker",
+          "description": "Gold rule and tracked uppercase label above a title."
+        },
+        {
+          "class": "tx-page-header__actions",
+          "description": "Buttons or a stepper, aligned to the bottom right; wraps below on narrow screens."
+        }
+      ],
+      "a11y": "One <h1> per page, here. The breadcrumb is a <nav aria-label=\"Breadcrumb\"> with aria-current=\"page\" on the last item.",
+      "replaces": [
+        ".page-header",
+        ".cfg-header",
+        ".res-header",
+        ".rp-header",
+        ".ad-header",
+        ".pd-header",
+        ".breadcrumb",
+        ".kicker"
+      ],
+      "owner": "Muthu",
+      "since": "1.0.0",
+      "classes": [
+        "tx-page-header",
+        "tx-page-header__text",
+        "tx-page-header__title",
+        "tx-page-header__lead",
+        "tx-page-header__actions",
+        "tx-breadcrumb",
+        "tx-icon",
+        "tx-kicker"
+      ],
+      "examples": [
+        "Title, breadcrumb and actions",
+        "With a kicker"
+      ],
+      "path": "ui/twinx/components/page-header"
+    },
+    {
+      "name": "pagination",
+      "title": "Pagination",
+      "category": "Navigation",
+      "status": "stable",
+      "origin": "library",
+      "description": "Page numbers with previous and next arrows; the current page has a gold border. Wraps on phones.",
+      "whenToUse": "Under a table, usually in the card footer next to a 'Showing x of y' summary.",
+      "variants": [
+        {
+          "class": "tx-pagination__page[aria-current=page]",
+          "description": "Current page."
+        },
+        {
+          "class": "tx-pagination__gap",
+          "description": "Ellipsis between page ranges."
+        }
+      ],
+      "a11y": "Wrap in <nav aria-label=\"Pages\">. Mark the current page with aria-current=\"page\". Arrows need aria-label.",
+      "replaces": [
+        ".pagination",
+        ".pagination__page",
+        ".pagination__arrow",
+        ".table-footer"
+      ],
+      "owner": "Muthu",
+      "since": "1.0.0",
+      "classes": [
+        "tx-pagination",
+        "tx-pagination__arrow",
+        "tx-pagination__page",
+        "tx-pagination__gap"
+      ],
+      "examples": [
+        "Pages"
+      ],
+      "path": "ui/twinx/components/pagination"
+    },
+    {
+      "name": "stepper",
+      "title": "Stepper",
+      "category": "Navigation",
+      "status": "stable",
+      "origin": "library",
+      "description": "Compact step indicator for multi-step flows: done steps show a green check, the current step is a raised pill, upcoming steps are muted.",
+      "whenToUse": "Wizards such as create promotion → configure → simulate → submit. Put it in the page header actions or above the form.",
+      "variants": [
+        {
+          "class": "tx-stepper__step--done",
+          "description": "Completed step."
+        },
+        {
+          "class": "tx-stepper__step--current",
+          "description": "Current step (set aria-current=\"step\")."
+        }
+      ],
+      "a11y": "Use an <ol>. Mark the current step with aria-current=\"step\". Done steps can be links back.",
+      "replaces": [
+        ".stepper",
+        ".stepper__step",
+        ".stepper__item"
+      ],
+      "owner": "Muthu",
+      "since": "1.0.0",
+      "classes": [
+        "tx-stepper",
+        "tx-stepper__step",
+        "tx-stepper__step--done",
+        "tx-stepper__item",
+        "tx-stepper__dot",
+        "tx-stepper__label",
+        "tx-stepper__step--current"
+      ],
+      "examples": [
+        "Four-step flow"
+      ],
+      "path": "ui/twinx/components/stepper"
+    },
+    {
+      "name": "tabs",
+      "title": "Tabs and segmented control",
+      "category": "Navigation",
+      "status": "stable",
+      "origin": "library",
+      "description": "A tinted track with the active tab raised on the card surface. The same look serves page tabs (switch panels) and segmented controls (switch a view or a filter).",
+      "whenToUse": "Tabs switch between panels of one page. A segmented control switches a view of the same data (Monthly / Quarterly). Up to about 6 options; the track scrolls sideways if it runs out of room.",
+      "variants": [
+        {
+          "class": "tx-tabs",
+          "description": "Tab list; panels are tx-tab-panel elements. Behaviour from twinx.js (data-tx-tabs)."
+        },
+        {
+          "class": "tx-segmented",
+          "description": "Same look, for radio-like view switches."
+        },
+        {
+          "class": "tx-tabs--line",
+          "description": "Underline style for tabs inside a card head."
+        },
+        {
+          "class": "tx-tab__count",
+          "description": "Small count after a tab label."
+        }
+      ],
+      "a11y": "role=\"tablist\" / \"tab\" / \"tabpanel\" with aria-selected and aria-controls. twinx.js adds arrow-key navigation. A segmented control uses aria-pressed on its buttons.",
+      "replaces": [
+        ".tabs",
+        ".tabs__list",
+        ".tab",
+        ".tab--active",
+        ".segments",
+        ".segment",
+        ".rp-tabs",
+        ".pd-tabs",
+        ".res-tabs",
+        ".art-tabs",
+        ".rf-tabs",
+        ".es-status"
+      ],
+      "owner": "Muthu",
+      "since": "1.0.0",
+      "classes": [
+        "tx-tabs",
+        "tx-segmented",
+        "tx-tab",
+        "tx-tab__count",
+        "tx-tabs--line",
+        "tx-tab-panel"
+      ],
+      "examples": [
+        "Tabs with panels",
+        "Segmented control",
+        "Underline tabs"
+      ],
+      "path": "ui/twinx/components/tabs"
+    },
+    {
+      "name": "modal",
+      "title": "Modal dialog",
+      "category": "Overlays",
+      "status": "stable",
+      "origin": "library",
+      "description": "Centred card on a dimmed, blurred backdrop with a gold top edge. Built on the native <dialog> element.",
+      "whenToUse": "Confirmations, short forms and details that need focus. Not for long flows (use a page). One primary button in the footer, on the right.",
+      "variants": [
+        {
+          "class": "tx-modal--sm",
+          "description": "420px, confirmations."
+        },
+        {
+          "class": "tx-modal--md",
+          "description": "560px, default."
+        },
+        {
+          "class": "tx-modal--lg",
+          "description": "760px, forms and tables."
+        },
+        {
+          "class": "data-tx-open / data-tx-close",
+          "description": "Attributes that open and close a dialog with twinx.js, no page script needed."
+        }
+      ],
+      "a11y": "Native <dialog> with showModal() traps focus and closes on Escape. Give it aria-labelledby pointing at the title.",
+      "replaces": [
+        ".ad-dialog",
+        ".es-dialog",
+        ".fam-dialog",
+        ".new-promo",
+        ".pp-panel",
+        ".rp-download",
+        ".sa-dialog",
+        ".umn-dialog",
+        ".us-dialog",
+        ".wf-comments",
+        ".wh-dialog"
+      ],
+      "owner": "Muthu",
+      "since": "1.0.0",
+      "classes": [
+        "tx-modal",
+        "tx-modal--sm",
+        "tx-modal--md",
+        "tx-modal--lg",
+        "tx-modal__head",
+        "tx-modal__title",
+        "tx-modal__subtitle",
+        "tx-modal__body",
+        "tx-modal__foot"
+      ],
+      "examples": [
+        "Confirmation",
+        "Form in a dialog"
+      ],
+      "path": "ui/twinx/components/modal"
+    },
+    {
+      "name": "tooltip",
+      "title": "Tooltip",
+      "category": "Overlays",
+      "status": "stable",
+      "origin": "library",
+      "description": "A small dark label under an element on hover and keyboard focus, set with one attribute.",
+      "whenToUse": "Explain an icon-only button or a truncated label. Not for essential information (it is hidden on touch).",
+      "variants": [
+        {
+          "class": "data-tx-tooltip",
+          "description": "Attribute holding the text."
+        },
+        {
+          "class": "data-tx-tooltip-pos=\"top\"",
+          "description": "Show above instead of below."
+        }
+      ],
+      "a11y": "Also set aria-label on icon-only buttons; the tooltip is visual only.",
+      "replaces": [
+        "[data-tooltip]"
+      ],
+      "owner": "Muthu",
+      "since": "1.0.0",
+      "classes": [],
+      "examples": [
+        "On icon buttons"
+      ],
+      "path": "ui/twinx/components/tooltip"
+    },
+    {
+      "name": "badge",
+      "title": "Badge",
+      "category": "Status",
+      "status": "stable",
+      "origin": "library",
+      "description": "A small tinted pill with a dot that shows a status: approved, pending, in progress, rejected, draft.",
+      "whenToUse": "Statuses in tables, cards and headers. Not for actions (use a button) and not for counts on icons (use tx-count).",
+      "variants": [
+        {
+          "class": "tx-badge--neutral",
+          "description": "Draft, unknown, archived."
+        },
+        {
+          "class": "tx-badge--progress",
+          "description": "In progress, running (gold)."
+        },
+        {
+          "class": "tx-badge--pending",
+          "description": "Waiting, needs action (amber)."
+        },
+        {
+          "class": "tx-badge--success",
+          "description": "Approved, done, valid (green)."
+        },
+        {
+          "class": "tx-badge--danger",
+          "description": "Rejected, failed, error (red)."
+        },
+        {
+          "class": "tx-badge--info",
+          "description": "Iteration, version, tag (brand, no dot)."
+        },
+        {
+          "class": "tx-count",
+          "description": "Round number on an icon button (notifications)."
+        }
+      ],
+      "a11y": "The status must be in the text, never only in the colour.",
+      "replaces": [
+        ".badge",
+        ".badge--progress",
+        ".badge--pending",
+        ".badge--iteration",
+        ".pr-badge",
+        ".notif__count"
+      ],
+      "owner": "Muthu",
+      "since": "1.0.0",
+      "classes": [
+        "tx-badge",
+        "tx-badge--neutral",
+        "tx-badge--progress",
+        "tx-badge--pending",
+        "tx-badge--success",
+        "tx-badge--danger",
+        "tx-badge--info",
+        "tx-count"
+      ],
+      "examples": [
+        "Statuses",
+        "Count on an icon button"
+      ],
+      "path": "ui/twinx/components/badge"
+    }
+  ]
+}

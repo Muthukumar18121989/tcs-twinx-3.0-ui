@@ -1,0 +1,24 @@
+{
+  "name": "tooltip",
+  "title": "Tooltip",
+  "category": "Overlays",
+  "description": "A small dark label under an element on hover and keyboard focus, set with one attribute.",
+  "whenToUse": "Explain an icon-only button or a truncated label. Not for essential information (it is hidden on touch).",
+  "variants": [
+    {
+      "class": "data-tx-tooltip",
+      "description": "Attribute holding the text."
+    },
+    {
+      "class": "data-tx-tooltip-pos=\"top\"",
+      "description": "Show above instead of below."
+    }
+  ],
+  "a11y": "Also set aria-label on icon-only buttons; the tooltip is visual only.",
+  "replaces": [
+    "[data-tooltip]"
+  ],
+  "status": "stable",
+  "since": "1.0.0",
+  "owner": "Muthu"
+}

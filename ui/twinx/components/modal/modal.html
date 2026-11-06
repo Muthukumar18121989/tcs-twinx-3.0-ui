@@ -1,0 +1,25 @@
+<!-- @example: Confirmation -->
+<button type="button" class="tx-btn tx-btn--danger" data-tx-open="demo-confirm">Delete promotion</button>
+<dialog class="tx-modal tx-modal--sm" id="demo-confirm" aria-labelledby="demo-confirm-title">
+  <div class="tx-modal__head">
+    <div><h2 class="tx-modal__title" id="demo-confirm-title">Delete this promotion?</h2><p class="tx-modal__subtitle">Spring offer 2027 and its 3 simulations will be removed.</p></div>
+    <button type="button" class="tx-btn tx-btn--ghost tx-btn--icon tx-btn--sm" data-tx-close aria-label="Close"><svg class="tx-icon tx-icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+  </div>
+  <div class="tx-modal__foot">
+    <button type="button" class="tx-btn" data-tx-close>Cancel</button>
+    <button type="button" class="tx-btn tx-btn--danger" data-tx-close>Delete</button>
+  </div>
+</dialog>
+
+<!-- @example: Form in a dialog -->
+<button type="button" class="tx-btn tx-btn--primary" data-tx-open="demo-form"><svg class="tx-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg>New user</button>
+<dialog class="tx-modal" id="demo-form" aria-labelledby="demo-form-title">
+  <form method="dialog">
+    <div class="tx-modal__head"><h2 class="tx-modal__title" id="demo-form-title">New user</h2><button type="button" class="tx-btn tx-btn--ghost tx-btn--icon tx-btn--sm" data-tx-close aria-label="Close"><svg class="tx-icon tx-icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div>
+    <div class="tx-modal__body tx-stack">
+      <div class="tx-field"><label class="tx-field__label" for="nu-name">Full name</label><input class="tx-input" id="nu-name" type="text"></div>
+      <div class="tx-field"><label class="tx-field__label" for="nu-role">Role</label><select class="tx-select" id="nu-role"><option>Analyst</option><option>Approver</option><option>Admin</option></select></div>
+    </div>
+    <div class="tx-modal__foot"><button type="button" class="tx-btn" data-tx-close>Cancel</button><button class="tx-btn tx-btn--primary">Create user</button></div>
+  </form>
+</dialog>

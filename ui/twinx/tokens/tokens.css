@@ -1,0 +1,260 @@
+/* TCS TwinX 3.0 UI: design tokens (the CXO design system) as CSS custom properties.
+   Every component in ui/components reads these variables and nothing else. Edit colours here, never in a component.
+
+   Source: cxo-design-system/tokens (colors.js, themes.js, typography.js, layout.js, chart.js), theme "wallStreet"
+   (Wall Street Executive, the design system default). Promotool is a static HTML app, so the JS token objects
+   (C, T, SPACE, TEXT, SIZE, Z, MOTION) are expressed here as variables. This is the "CSS custom properties"
+   migration the design system's own RULES.md names as the long-term theme fix: switching theme is one
+   attribute on <html> (data-cxo-theme), with no reload.
+
+   Rule (README "Tokens, never literals"): screens read these variables, never a hex, font name, radius or shadow. */
+
+/* defaults that a theme may override (declared first so the theme blocks below win) */
+:root {
+  --c-on-brand: #FFFFFF;          /* text and glyphs on a brand fill */
+  --c-on-dark: #F4F1EA;           /* text on the navy menu bar (NavItem) */
+  --c-slate: #475569;
+  --paper-shade: black 5%;
+  --card-shade: black 3%;
+  --shadow-1: 0 1px 2px rgba(12, 17, 22, .04), 0 1px 1px rgba(12, 17, 22, .03);
+  --shadow-2: 0 4px 16px rgba(12, 17, 22, .06), 0 2px 4px rgba(12, 17, 22, .04);
+  --shadow-3: 0 18px 48px rgba(12, 17, 22, .10), 0 6px 16px rgba(12, 17, 22, .06);
+}
+/* ── colour themes (themes.js THEMES) ─────────────────────────────────────────
+   The palette is set per theme on <html data-cxo-theme="…">; every derived token below (tints, gradients,
+   shadows) is computed from it, so switching theme is one attribute and no reload. js/cxo-theme.js switches it. */
+/* Wall Street Executive: cream, deep navy, champagne gold */
+:root,
+[data-cxo-theme="wallStreet"] {
+  --c-paper: #FAF8F3;
+  --c-card: #FFFFFF;
+  --c-ink: #0C1116;
+  --c-ink2: #2C3540;
+  --c-muted: #6A7480;
+  --c-faint: #9DA6B0;
+  --c-line: #EAE6DC;
+  --c-line2: #D9D2C4;
+  --c-brand: #1B3A6B;
+  --c-brand-lt: #34568A;
+  --c-gold: #B89B5E;
+  --c-gold-dk: #7F6938;
+  --c-nav-bg: #0A1628;
+  --c-nav-bg2: #0F1F36;
+  --c-green: #2D6B4A;
+  --c-green-bg: #EAF3EE;
+  --c-red: #A8453B;
+  --c-red-bg: #FBECEA;
+  --c-amber: #B5862C;
+  --c-amber-bg: #FAF1DD;
+}
+
+/* Onyx Midnight (dark): black onyx, warm champagne accents */
+[data-cxo-theme="onyx"] {
+  --c-paper: #0E0F12;
+  --c-card: #16181D;
+  --c-ink: #F0EDE3;
+  --c-ink2: #C3BDB0;
+  --c-muted: #7A7468;
+  --c-faint: #4E4940;
+  --c-line: #232529;
+  --c-line2: #2E3036;
+  --c-brand: #C9A961;
+  --c-brand-lt: #E6C77F;
+  --c-gold: #D4B574;
+  --c-gold-dk: #A38845;
+  --c-nav-bg: #1A1D26;
+  --c-nav-bg2: #12141C;
+  --c-green: #5DAA85;
+  --c-green-bg: #0F2218;
+  --c-red: #D4634D;
+  --c-red-bg: #2A1411;
+  --c-amber: #D9B265;
+  --c-amber-bg: #25190A;
+  --c-on-brand: #0E0F12;
+  --c-on-dark: #F0EDE3;
+  --c-slate: #8A94A6;
+  color-scheme: dark;
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, .5), 0 1px 1px rgba(0, 0, 0, .4);
+  --shadow-2: 0 6px 18px rgba(0, 0, 0, .55), 0 2px 6px rgba(0, 0, 0, .4);
+  --shadow-3: 0 24px 56px rgba(0, 0, 0, .7), 0 8px 20px rgba(0, 0, 0, .5);
+  --paper-shade: black 4%;
+  --card-shade: white 3%;
+}
+
+/* Porcelain: pure white minimalism, graphite and ochre */
+[data-cxo-theme="porcelain"] {
+  --c-paper: #FCFCFC;
+  --c-card: #FFFFFF;
+  --c-ink: #0A0A0A;
+  --c-ink2: #3A3A3A;
+  --c-muted: #7A7A7A;
+  --c-faint: #B0B0B0;
+  --c-line: #ECECEC;
+  --c-line2: #DDDDDD;
+  --c-brand: #2C2C2C;
+  --c-brand-lt: #4A4A4A;
+  --c-gold: #B07D2A;
+  --c-gold-dk: #7A5618;
+  --c-nav-bg: #1A1A1A;
+  --c-nav-bg2: #232323;
+  --c-green: #2C7D5F;
+  --c-green-bg: #E8F2EC;
+  --c-red: #B83D33;
+  --c-red-bg: #FBE8E5;
+  --c-amber: #B07D2A;
+  --c-amber-bg: #FAF1DD;
+}
+
+/* Bordeaux Estate: wine, parchment, antique brass */
+[data-cxo-theme="bordeaux"] {
+  --c-paper: #F6F1EB;
+  --c-card: #FFFEF9;
+  --c-ink: #1A0E10;
+  --c-ink2: #3E2E32;
+  --c-muted: #7A6868;
+  --c-faint: #A89894;
+  --c-line: #E8DFD5;
+  --c-line2: #D6CBBC;
+  --c-brand: #7E2D38;
+  --c-brand-lt: #9D4250;
+  --c-gold: #B08552;
+  --c-gold-dk: #7A5A30;
+  --c-nav-bg: #3E1218;
+  --c-nav-bg2: #4F1820;
+  --c-green: #4A7D5F;
+  --c-green-bg: #EAF2EC;
+  --c-red: #A83A2E;
+  --c-red-bg: #FAE8E4;
+  --c-amber: #B08552;
+  --c-amber-bg: #F5EBDB;
+}
+
+/* UPS Shield: Pullman brown, gold, warm tan */
+[data-cxo-theme="upsBrand"] {
+  --c-paper: #FBF6EF;
+  --c-card: #FFFFFF;
+  --c-ink: #1A0E08;
+  --c-ink2: #3E2A1C;
+  --c-muted: #7A6858;
+  --c-faint: #A89880;
+  --c-line: #E8DECE;
+  --c-line2: #D5C4AE;
+  --c-brand: #644117;
+  --c-brand-lt: #7D5A2F;
+  --c-gold: #FFB500;
+  --c-gold-dk: #CC9100;
+  --c-nav-bg: #351C15;
+  --c-nav-bg2: #4A2E1C;
+  --c-green: #2D6B4A;
+  --c-green-bg: #EAF3EE;
+  --c-red: #A83A2E;
+  --c-red-bg: #FBECEA;
+  --c-amber: #D4920A;
+  --c-amber-bg: #FFF5D6;
+}
+
+/* tokens derived from the palette (themes.js applyTheme) */
+:root, [data-cxo-theme] {
+  /* tints (the design system writes these as colour + 2-digit alpha, e.g. `${C.gold}18`) */
+  --c-gold-tint: color-mix(in srgb, var(--c-gold) 9%, transparent);
+  --c-gold-hover: color-mix(in srgb, var(--c-gold) 6%, transparent);
+  --c-gold-ring: color-mix(in srgb, var(--c-gold) 35%, transparent);
+  /* opaque washes over the card surface, so sticky table headers and frozen columns stay solid */
+  --c-brand-tint: color-mix(in srgb, var(--c-brand) 6%, var(--c-card));
+  --c-brand-tint2: color-mix(in srgb, var(--c-brand) 12%, var(--c-card));
+  --c-ink-tint: color-mix(in srgb, var(--c-ink) 2%, var(--c-card));
+  --c-ink-tint2: color-mix(in srgb, var(--c-ink) 5%, var(--c-card));
+
+  /* on the dark menu bar and context bar: text and fills derived from --c-on-dark */
+  --nav-text: color-mix(in srgb, var(--c-on-dark) 65%, transparent);
+  --nav-text-quiet: color-mix(in srgb, var(--c-on-dark) 45%, transparent);
+  --nav-text-faint: color-mix(in srgb, var(--c-on-dark) 38%, transparent);
+  --nav-fill: color-mix(in srgb, var(--c-on-dark) 4%, transparent);
+  --nav-fill-hover: color-mix(in srgb, var(--c-on-dark) 8%, transparent);
+  --nav-fill-active: color-mix(in srgb, var(--c-on-dark) 6%, transparent);
+  --nav-line: color-mix(in srgb, var(--c-on-dark) 7%, transparent);
+  --scrim: color-mix(in srgb, var(--c-nav-bg) 45%, transparent);
+  --c-muted-tint: color-mix(in srgb, var(--c-muted) 10%, transparent);
+
+  /* ── shape, depth, gradients (T) ─────────────────────────── */
+  --rad-sm: 6px;
+  --rad-md: 10px;
+  --rad-lg: 14px;
+  --rad-xl: 18px;
+  --rad-pill: 999px;
+  --shadow-gold-glow: 0 0 0 1px color-mix(in srgb, var(--c-gold) 22%, transparent), 0 8px 28px color-mix(in srgb, var(--c-gold) 18%, transparent);
+  --gold-foil: linear-gradient(135deg, color-mix(in srgb, var(--c-gold) 70%, white) 0%, var(--c-gold) 50%, var(--c-gold-dk) 100%);
+  --nav-grad: linear-gradient(180deg, var(--c-nav-bg) 0%, var(--c-nav-bg2) 60%, var(--c-nav-bg) 100%);
+  --paper-grad: linear-gradient(180deg, var(--c-paper) 0%, color-mix(in srgb, var(--c-paper), var(--paper-shade)) 100%);
+  --card-elevated: linear-gradient(180deg, var(--c-card) 0%, color-mix(in srgb, var(--c-card), var(--card-shade)) 100%);
+  --rule: 1px solid var(--c-line);
+  --rule-strong: 1px solid var(--c-line2);
+  --hairline-gold: 1px solid color-mix(in srgb, var(--c-gold) 30%, transparent);
+
+  /* ── chart (chart.js: chartColors(), brand first) ────────── */
+  --chart-1: var(--c-brand);
+  --chart-2: var(--c-gold);
+  --chart-3: var(--c-green);
+  --chart-4: var(--c-red);
+  --chart-5: var(--c-amber);
+  --chart-6: var(--c-slate);
+  --chart-7: var(--c-brand-lt);
+  --chart-8: var(--c-gold-dk);
+}
+
+:root {
+  /* ── typography (typography.js; families come from fonts.css presets) ── */
+  --font: var(--cxo-font-body);
+  --disp: var(--cxo-font-display);
+  --title: var(--cxo-font-title);
+  --brand-font: var(--cxo-font-brand);
+
+  /* type scale (TEXT, px) */
+  --t-micro: 9px;
+  --t-caption: 10.5px;
+  --t-small: 11.5px;
+  --t-body: 12.5px;
+  --t-base: 13px;
+  --t-lead: 15px;
+  --t-h3: 18px;
+  --t-h2: 22px;
+  --t-h1: 28px;
+
+  /* ── spacing (SPACE) ──────────────────────────────────────── */
+  --s-xs: 4px;
+  --s-sm: 8px;
+  --s-md: 12px;
+  --s-lg: 16px;
+  --s-xl: 24px;
+  --s-xxl: 32px;
+  --s-xxxl: 44px;
+
+  /* ── sizes (SIZE) ─────────────────────────────────────────── */
+  --sidebar-collapsed: 72px;
+  --sidebar-expanded: 240px;
+  --nav-btn: 32px;
+  --shell-inset: 14px;
+  --page-pad-top: 16px;
+  --page-pad-x: 20px;
+  --page-pad-bottom: 20px;
+  --page-max: 1680px;
+  --control-h: 36px;
+  --control-h-sm: 28px;
+  --modal-sm: 420px;
+  --modal-md: 560px;
+  --modal-lg: 760px;
+
+  /* ── layers (Z) and motion (MOTION) ───────────────────────── */
+  --z-base: 1;
+  --z-sticky: 20;
+  --z-dropdown: 50;
+  --z-overlay: 1000;
+  --z-overlay-content: 1001;
+  --z-panel: 1200;
+  --z-modal: 9000;
+  --z-toast: 10000;
+  --ease: cubic-bezier(.22, .61, .36, 1);
+  --m-fast: 120ms;
+  --m-base: 200ms;
+  --m-slow: 300ms;
+}

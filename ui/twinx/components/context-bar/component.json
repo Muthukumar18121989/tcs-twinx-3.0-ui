@@ -1,0 +1,24 @@
+{
+  "name": "context-bar",
+  "title": "Context bar",
+  "category": "Data display",
+  "description": "One dark band of key facts about the record being viewed (promotion, market, period, owner), in the menu bar colours, with an optional gold action chip.",
+  "whenToUse": "Top of detail pages (result, workflow, logistics) to keep the record in view. One per page, under the page header.",
+  "variants": [
+    {
+      "class": "tx-context-bar__chip",
+      "description": "Gold action chip on the right."
+    }
+  ],
+  "a11y": "Facts are a <dl>: each fact is a <div> with <dt> label and <dd> value.",
+  "replaces": [
+    ".res-summary",
+    ".wf-summary",
+    ".vs-summary",
+    ".res-fact",
+    ".res-chip"
+  ],
+  "status": "stable",
+  "since": "1.0.0",
+  "owner": "Muthu"
+}

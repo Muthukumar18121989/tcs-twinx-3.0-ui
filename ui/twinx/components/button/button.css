@@ -1,0 +1,32 @@
+/* Button (CXO primitives/Btn) */
+.tx-btn {
+  position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  height: var(--control-h); padding: 0 16px; flex: none;
+  border: 1px solid var(--c-line2); border-radius: var(--rad-md);
+  background: var(--c-card); color: var(--c-ink); box-shadow: var(--shadow-1);
+  font: 600 13px/1 var(--font); letter-spacing: .02em; white-space: nowrap; text-decoration: none; cursor: pointer;
+  transition: transform .15s var(--ease), box-shadow .2s var(--ease), background .15s var(--ease), border-color .15s var(--ease), color .15s var(--ease);
+}
+.tx-btn:hover { border-color: var(--c-gold); background: var(--c-gold-hover); transform: translateY(-1px); }
+.tx-btn:active { transform: translateY(0) scale(.97); }
+.tx-btn:disabled, .tx-btn[aria-disabled="true"] { opacity: .45; cursor: not-allowed; transform: none; box-shadow: none; }
+.tx-btn .tx-icon { width: 15px; height: 15px; }
+
+.tx-btn--primary { background: var(--c-brand); border-color: var(--c-brand); color: var(--c-on-brand); }
+.tx-btn--primary:hover { background: var(--c-nav-bg); border-color: var(--c-nav-bg); color: var(--c-on-dark); box-shadow: var(--shadow-2); }
+.tx-btn--secondary { /* the default look, named for clarity in markup */ }
+.tx-btn--ghost { background: transparent; border-color: transparent; box-shadow: none; color: var(--c-ink2); }
+.tx-btn--ghost:hover { background: var(--c-ink-tint2); border-color: transparent; color: var(--c-ink); }
+.tx-btn--danger { background: var(--c-card); border-color: color-mix(in srgb, var(--c-red) 45%, var(--c-line2)); color: var(--c-red); }
+.tx-btn--danger:hover { background: var(--c-red); border-color: var(--c-red); color: var(--c-on-brand); }
+.tx-btn--icon { width: var(--control-h); padding: 0; }
+.tx-btn--sm { height: var(--control-h-sm); padding: 0 12px; font-size: 12px; border-radius: var(--rad-sm); }
+.tx-btn--sm.tx-btn--icon { width: var(--control-h-sm); padding: 0; }
+.tx-btn--block { width: 100%; }
+.tx-btn.is-loading { pointer-events: none; color: transparent; }
+.tx-btn.is-loading::after { content: ""; position: absolute; width: 14px; height: 14px; border-radius: 50%; border: 2px solid currentColor; border-color: var(--c-muted) transparent var(--c-muted) transparent; animation: tx-spin .8s linear infinite; }
+.tx-btn--primary.is-loading::after { border-color: var(--c-on-brand) transparent var(--c-on-brand) transparent; }
+
+/* a row of buttons: dialog footers, form actions */
+.tx-btn-group { display: flex; align-items: center; flex-wrap: wrap; gap: var(--s-sm); }
+.tx-btn-group--end { justify-content: flex-end; }

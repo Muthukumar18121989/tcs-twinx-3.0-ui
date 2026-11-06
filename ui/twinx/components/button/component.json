@@ -1,0 +1,56 @@
+{
+  "name": "button",
+  "title": "Button",
+  "category": "Actions",
+  "description": "The one button for every action. Primary for the main action of a view, secondary for everything else, ghost for low-emphasis actions in toolbars, danger for destructive actions.",
+  "whenToUse": "Any clickable action. Use one primary button per view or dialog. Use an <a class=\"tx-btn\"> only when it navigates.",
+  "variants": [
+    {
+      "class": "tx-btn--primary",
+      "description": "Main action. Brand fill, lifts to the menu-bar colour on hover."
+    },
+    {
+      "class": "tx-btn--secondary",
+      "description": "Default action. Card surface, line border, gold on hover."
+    },
+    {
+      "class": "tx-btn--ghost",
+      "description": "Low emphasis, no border until hover."
+    },
+    {
+      "class": "tx-btn--danger",
+      "description": "Destructive action (delete, reject)."
+    },
+    {
+      "class": "tx-btn--icon",
+      "description": "Square icon-only button. Needs aria-label."
+    },
+    {
+      "class": "tx-btn--sm",
+      "description": "28px high, for tables and dense toolbars."
+    },
+    {
+      "class": "tx-btn--block",
+      "description": "Full width, for narrow forms and mobile."
+    }
+  ],
+  "a11y": "Use <button type=\"button\"> (or type=\"submit\" in forms). Icon-only buttons need aria-label. Disabled state uses the disabled attribute, not a class.",
+  "replaces": [
+    ".btn-primary",
+    ".btn-validate",
+    ".btn-next",
+    ".btn-create",
+    ".btn-outline",
+    ".btn-outline-icon",
+    ".btn-square",
+    ".icon-btn",
+    ".ad-btn",
+    ".pd-btn",
+    ".pp-btn",
+    ".rp-btn",
+    ".ub"
+  ],
+  "status": "stable",
+  "since": "1.0.0",
+  "owner": "Muthu"
+}

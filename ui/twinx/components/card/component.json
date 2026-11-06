@@ -1,0 +1,47 @@
+{
+  "name": "card",
+  "title": "Card",
+  "category": "Layout",
+  "description": "The one container for a block of content: a titled section with an optional toolbar, a body and a footer.",
+  "whenToUse": "Every block on a page. One container per block: never put a framed card inside another card. Tables, filter bars and forms inside a card sit flush (their frame is removed automatically).",
+  "variants": [
+    {
+      "class": "tx-card__head",
+      "description": "Title row with optional subtitle and actions on the right."
+    },
+    {
+      "class": "tx-card__body",
+      "description": "Padded content area."
+    },
+    {
+      "class": "tx-card__body--flush",
+      "description": "No padding, for tables that run edge to edge."
+    },
+    {
+      "class": "tx-card__foot",
+      "description": "Footer row (pagination, summary, actions)."
+    },
+    {
+      "class": "tx-card--elevated",
+      "description": "Slight gradient and deeper shadow, for hero blocks."
+    },
+    {
+      "class": "tx-section-title",
+      "description": "A heading for a group of cards, without a frame."
+    }
+  ],
+  "a11y": "Give the card's title an id and set aria-labelledby on the <section>.",
+  "replaces": [
+    ".card",
+    ".ad-card",
+    ".es-card",
+    ".res-card",
+    ".pd-card",
+    ".rp-card",
+    ".vs-card",
+    ".projects-card"
+  ],
+  "status": "stable",
+  "since": "1.0.0",
+  "owner": "Muthu"
+}

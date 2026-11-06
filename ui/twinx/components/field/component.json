@@ -1,0 +1,50 @@
+{
+  "name": "field",
+  "title": "Field",
+  "category": "Forms",
+  "description": "Label, control and help or error text for text inputs, selects, textareas and search boxes. 36px controls with a gold focus ring.",
+  "whenToUse": "Every form control. Wrap the control in tx-field so label, help and error stay consistent. Use tx-field--inline for a label beside the control.",
+  "variants": [
+    {
+      "class": "tx-input",
+      "description": "Text, number, email, password, date inputs."
+    },
+    {
+      "class": "tx-select",
+      "description": "Native select with the themed chevron."
+    },
+    {
+      "class": "tx-textarea",
+      "description": "Multi-line text."
+    },
+    {
+      "class": "tx-input-group",
+      "description": "Input with a leading icon or a trailing unit."
+    },
+    {
+      "class": "tx-field--error",
+      "description": "Red border and message; set aria-invalid on the control."
+    },
+    {
+      "class": "tx-input--sm",
+      "description": "28px control for tables and dense filters."
+    }
+  ],
+  "a11y": "Every control has a <label for>. Help and error text are linked with aria-describedby. Required fields use the required attribute and show '*' in the label.",
+  "replaces": [
+    ".field",
+    ".field__control",
+    ".ue-field",
+    ".pp-field",
+    ".uf__box",
+    ".cfg-input",
+    ".cfg-select",
+    ".text-input",
+    ".sa-input",
+    ".vol-input",
+    ".vs-input"
+  ],
+  "status": "stable",
+  "since": "1.0.0",
+  "owner": "Muthu"
+}

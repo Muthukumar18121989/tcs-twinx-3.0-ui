@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!-- TCS TwinX 3.0 UI page pattern: copy this file to start a page. Keep the head, the shell and the script at the end;
+     change the brand, the menu items, the header and what is inside tx-main__body. Paths assume the page sits at the repo root. -->
+<html lang="en" data-cxo-theme="wallStreet" data-cxo-font="editorial">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Create or edit a record: a stepper in the header, a form card in sections, actions in the card footer.">
+  <title>TwinX — Form page</title>
+  <script>try{var d=document.documentElement,t=localStorage.getItem("twinx-theme");if(/^(wallStreet|onyx|porcelain|bordeaux|upsBrand)$/.test(t))d.setAttribute("data-cxo-theme",t);if(localStorage.getItem("twinx-nav-pinned")!=="1")d.classList.add("is-nav-collapsed")}catch(e){document.documentElement.classList.add("is-nav-collapsed")}</script>
+  <link rel="stylesheet" href="ui/twinx/twinx.css">
+  <link rel="stylesheet" href="ui/local/local.css">
+</head>
+<body>
+<div class="tx-app">
+  <aside class="tx-sidebar" id="tx-sidebar" aria-label="Main menu">
+    <div class="tx-sidebar__brand">
+      <span class="tx-sidebar__badge" aria-hidden="true">TX</span>
+      <span class="tx-sidebar__name"><span class="tx-sidebar__title">TwinX</span><span class="tx-sidebar__sub">TCS</span></span>
+      <button class="tx-sidebar__icon-btn" type="button" data-tx-nav-toggle aria-controls="tx-sidebar" aria-expanded="false" aria-label="Keep menu open"><svg class="tx-icon i-close" viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/></svg><svg class="tx-icon i-open" viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/><path d="m14 9 3 3-3 3"/></svg></button>
+    </div>
+    <div class="tx-sidebar__scroll">
+      <nav class="tx-sidebar__nav" aria-label="Primary">
+        <div class="tx-sidebar__section">Workspace</div>
+        <a class="tx-nav-item" href="index.html" title="Dashboard"><svg class="tx-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span class="tx-nav-item__label">Dashboard</span></a>
+        <a class="tx-nav-item is-active" aria-current="page" href="list.html" title="Promotions"><svg class="tx-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg><span class="tx-nav-item__label">Promotions</span></a>
+        <a class="tx-nav-item" href="users.html" title="Users"><svg class="tx-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span class="tx-nav-item__label">Users</span></a>
+        <a class="tx-nav-item" href="settings.html" title="Settings"><svg class="tx-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg><span class="tx-nav-item__label">Settings</span></a>
+      </nav>
+    </div>
+    <div class="tx-sidebar__footer">
+      <div class="tx-sidebar__utils">
+        <button class="tx-sidebar__icon-btn" type="button" aria-label="Notifications (3)" title="Notifications"><svg class="tx-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg><span class="tx-count">3</span></button>
+        <button class="tx-sidebar__icon-btn" type="button" data-tx-theme-open aria-haspopup="menu" aria-expanded="false" aria-label="Colour theme" title="Colour theme"><svg class="tx-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg></button>
+      </div>
+      <button class="tx-profile" type="button" title="Marcus Weber, Admin"><span class="tx-profile__avatar" aria-hidden="true">MW</span><span class="tx-profile__text"><span class="tx-profile__name">Marcus Weber</span><span class="tx-profile__role">Admin</span></span></button>
+    </div>
+  </aside>
+  <div class="tx-scrim" data-tx-nav-close hidden></div>
+
+  <div class="tx-main">
+    <div class="tx-mobile-bar">
+      <button class="tx-btn tx-btn--icon" type="button" data-tx-nav-open aria-label="Open menu" aria-controls="tx-sidebar"><svg class="tx-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16"/><path d="M4 6h16"/><path d="M4 18h16"/></svg></button>
+      <span class="tx-sidebar__badge" aria-hidden="true">TX</span><span class="tx-mobile-bar__title">TwinX</span>
+    </div>
+
+    <header class="tx-page-header">
+      <div class="tx-page-header__text">
+        <nav aria-label="Breadcrumb"><ol class="tx-breadcrumb"><li><a href="#">Home</a></li><li><a href="#">Promotions</a></li><li><span aria-current="page">New promotion</span></li></ol></nav>
+        <h1 class="tx-page-header__title">New promotion</h1>
+        <p class="tx-page-header__lead">Set up the promotion. You can simulate it before submitting.</p>
+      </div>
+      <div class="tx-page-header__actions"><ol class="tx-stepper" aria-label="Progress"><li class="tx-stepper__step tx-stepper__step--done"><a class="tx-stepper__item" href="#"><span class="tx-stepper__dot">1</span><span class="tx-stepper__label">Setup</span></a></li><li class="tx-stepper__step tx-stepper__step--current" aria-current="step"><span class="tx-stepper__item"><span class="tx-stepper__dot">2</span><span class="tx-stepper__label">Configure</span></span></li><li class="tx-stepper__step"><span class="tx-stepper__item"><span class="tx-stepper__dot">3</span><span class="tx-stepper__label">Submit</span></span></li></ol></div>
+    </header>
+
+    <main class="tx-main__body">
+      <form class="tx-card" aria-labelledby="form-title" onsubmit="event.preventDefault(); TwinX.toast('Saved as draft', { tone: 'success' })">
+        <header class="tx-card__head"><div class="tx-card__titles"><h2 class="tx-card__title" id="form-title">Configure</h2><p class="tx-card__subtitle">Fields marked * are required.</p></div></header>
+        <div class="tx-card__body tx-stack tx-stack--xl">
+          <div class="tx-grid tx-grid--2">
+            <div class="tx-field"><label class="tx-field__label" for="p-name">Promotion name<span class="tx-req">*</span></label><input class="tx-input" id="p-name" type="text" required></div>
+            <div class="tx-field"><label class="tx-field__label" for="p-market">Market<span class="tx-req">*</span></label><select class="tx-select" id="p-market" required><option>France</option><option>Germany</option><option>Italy</option></select></div>
+            <div class="tx-field"><label class="tx-field__label" for="p-start">Start date</label><input class="tx-input" id="p-start" type="date"></div>
+            <div class="tx-field"><label class="tx-field__label" for="p-end">End date</label><input class="tx-input" id="p-end" type="date"></div>
+            <div class="tx-field"><label class="tx-field__label" for="p-disc">Discount</label><div class="tx-input-group"><input id="p-disc" type="number" class="tx-num" value="10"><span class="tx-input-group__unit">%</span></div></div>
+            <div class="tx-field"><label class="tx-field__label" for="p-budget">Budget</label><div class="tx-input-group"><input id="p-budget" type="number" class="tx-num" value="250000"><span class="tx-input-group__unit">EUR</span></div></div>
+          </div>
+          <fieldset class="tx-choice-group tx-choice-group--row"><legend>Channels</legend><label class="tx-check"><input type="checkbox" checked> Retail</label><label class="tx-check"><input type="checkbox"> Fleet</label><label class="tx-check"><input type="checkbox"> Online</label></fieldset>
+          <div class="tx-field"><label class="tx-field__label" for="p-notes">Comment for the approver</label><textarea class="tx-textarea" id="p-notes"></textarea></div>
+        </div>
+        <footer class="tx-card__foot"><button type="button" class="tx-btn tx-btn--ghost">Back</button><div class="tx-btn-group"><button type="submit" class="tx-btn">Save draft</button><button type="button" class="tx-btn tx-btn--primary">Continue</button></div></footer>
+      </form>
+    </main>
+  </div>
+</div>
+<script src="ui/twinx/js/twinx.js"></script>
+<script src="ui/twinx/js/components.js"></script>
+</body>
+</html>
