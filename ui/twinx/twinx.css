@@ -263,10 +263,18 @@
   --chart-2: var(--c-gold);
   --chart-3: var(--c-green);
   --chart-4: var(--c-red);
-  --chart-5: var(--c-amber);
-  --chart-6: var(--c-slate);
+  --chart-5: var(--c-slate);          /* slate before amber: in porcelain and bordeaux amber equals gold */
+  --chart-6: var(--c-amber);
   --chart-7: var(--c-brand-lt);
   --chart-8: var(--c-gold-dk);
+}
+/* onyx: brand, gold and amber are all champagne, so neighbouring slices would look the same */
+[data-cxo-theme="onyx"] {
+  --chart-1: var(--c-gold);
+  --chart-2: var(--c-slate);
+  --chart-5: color-mix(in srgb, var(--c-ink2) 55%, var(--c-card));
+  --chart-6: color-mix(in srgb, var(--c-slate) 55%, var(--c-card));
+  --chart-7: var(--c-amber);
 }
 
 :root {
@@ -460,6 +468,40 @@ th, td { padding: 0; font-weight: inherit; text-align: left; }
 .tx-kpi__delta--up { color: var(--c-green); }
 .tx-kpi__delta--down { color: var(--c-red); }
 
+/* ── pie-chart [experimental] ── */
+/* Pie and donut chart: slices drawn by components.js from the legend, coloured with --chart-1…8 */
+.tx-pie { --tx-pie-size: 168px; display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-lg) var(--s-xl); margin: 0; min-width: 0; }
+.tx-pie--sm { --tx-pie-size: 120px; }
+.tx-pie__caption { flex: 1 0 100%; font: 600 var(--t-body)/1.3 var(--font); color: var(--c-ink2); }
+.tx-pie__chart {
+  position: relative; flex: none; width: var(--tx-pie-size); height: var(--tx-pie-size); border-radius: 50%;
+  background: var(--c-ink-tint2); box-shadow: 0 0 0 1px var(--c-line);
+}
+.tx-pie--donut .tx-pie__chart::after {
+  content: ""; position: absolute; inset: 22%; border-radius: 50%; background: var(--c-card); box-shadow: inset 0 0 0 1px var(--c-line);
+}
+.tx-pie__center {
+  position: absolute; inset: 0; z-index: 1; display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; pointer-events: none;
+}
+.tx-pie--donut .tx-pie__center { display: flex; }
+.tx-pie__total { font: 600 var(--t-h3)/1.1 var(--disp); color: var(--c-ink); font-variant-numeric: tabular-nums; }
+.tx-pie__center-label { font: 600 var(--t-caption)/1.3 var(--font); color: var(--c-muted); text-transform: uppercase; letter-spacing: .06em; }
+
+.tx-pie__legend { flex: 1 1 200px; max-width: 380px; min-width: 0; margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: var(--s-sm); }
+.tx-pie__item { display: flex; align-items: center; gap: var(--s-sm); font: 400 var(--t-body)/1.4 var(--font); color: var(--c-ink2); }
+.tx-pie__swatch { flex: none; width: 10px; height: 10px; border-radius: 3px; background: var(--chart-1); }
+.tx-pie__item:nth-child(2) .tx-pie__swatch { background: var(--chart-2); }
+.tx-pie__item:nth-child(3) .tx-pie__swatch { background: var(--chart-3); }
+.tx-pie__item:nth-child(4) .tx-pie__swatch { background: var(--chart-4); }
+.tx-pie__item:nth-child(5) .tx-pie__swatch { background: var(--chart-5); }
+.tx-pie__item:nth-child(6) .tx-pie__swatch { background: var(--chart-6); }
+.tx-pie__item:nth-child(7) .tx-pie__swatch { background: var(--chart-7); }
+.tx-pie__item:nth-child(8) .tx-pie__swatch { background: var(--chart-8); }
+.tx-pie__label { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tx-pie__value { flex: none; font-weight: 600; color: var(--c-ink); font-variant-numeric: tabular-nums; }
+.tx-pie__share { flex: none; min-width: 3.5em; text-align: right; color: var(--c-muted); font-variant-numeric: tabular-nums; }
+.tx-pie__share:empty { display: none; }
+
 /* ── empty-state [stable] ── */
 /* Empty state */
 .tx-empty { display: flex; flex-direction: column; align-items: center; gap: var(--s-sm); padding: var(--s-xxxl) var(--s-lg); text-align: center; }
@@ -581,6 +623,36 @@ th, td { padding: 0; font-weight: inherit; text-align: left; }
 .tx-filter-bar__fields > .tx-field { flex: 1 1 160px; min-width: 140px; }
 .tx-filter-bar__actions { display: flex; align-items: center; gap: var(--s-sm); }
 .tx-card .tx-filter-bar { padding: var(--s-md) var(--s-lg); border-bottom: 1px solid var(--c-line); }
+
+/* ── accordion [experimental] ── */
+/* Accordion: native <details> sections in one frame */
+.tx-accordion {
+  display: flex; flex-direction: column; min-width: 0;
+  background: var(--c-card); border: 1px solid var(--c-line); border-radius: var(--rad-lg); box-shadow: var(--shadow-1); overflow: hidden;
+}
+.tx-accordion__item + .tx-accordion__item { border-top: 1px solid var(--c-line); }
+.tx-accordion__summary {
+  display: flex; align-items: center; gap: var(--s-md); padding: var(--s-md) var(--s-lg); min-height: 52px;
+  list-style: none; cursor: pointer; color: var(--c-ink);
+  transition: background var(--m-fast) var(--ease);
+}
+.tx-accordion__summary::-webkit-details-marker { display: none; }
+.tx-accordion__summary::marker { content: ""; }
+.tx-accordion__summary:hover { background: var(--c-ink-tint); }
+.tx-accordion__summary:focus-visible { outline: 2px solid var(--c-gold-ring); outline-offset: -2px; }
+.tx-accordion__item[open] > .tx-accordion__summary { background: var(--c-ink-tint); border-bottom: 1px solid var(--c-line); }
+.tx-accordion__title { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.tx-accordion__title > :is(h2, h3, h4, strong) { margin: 0; font: 600 var(--t-lead)/1.3 var(--disp); color: var(--c-ink); letter-spacing: -.005em; }
+.tx-accordion__subtitle { font: 400 var(--t-small)/1.45 var(--font); color: var(--c-muted); }
+.tx-accordion__meta { flex: none; font: 600 var(--t-small)/1.3 var(--font); color: var(--c-muted); white-space: nowrap; }
+.tx-accordion__chevron { flex: none; width: 18px; height: 18px; color: var(--c-muted); transition: transform var(--m-base) var(--ease); }
+.tx-accordion__item[open] > .tx-accordion__summary .tx-accordion__chevron { transform: rotate(180deg); color: var(--c-gold-dk); }
+.tx-accordion__body { padding: var(--s-lg); min-width: 0; }
+
+/* one container per block: inside a card the accordion goes flush */
+.tx-accordion--flush, .tx-card .tx-accordion { border: 0; border-radius: 0; box-shadow: none; background: transparent; }
+.tx-card .tx-accordion { border-top: 1px solid var(--c-line); }
+@media (prefers-reduced-motion: reduce) { .tx-accordion__chevron, .tx-accordion__summary { transition: none; } }
 
 /* ── app-shell [stable] ── */
 /* App shell (CXO layout/PageShell + SidebarShell + NavItem) */

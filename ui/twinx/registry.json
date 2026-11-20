@@ -235,6 +235,62 @@
       "path": "ui/twinx/components/kpi-tile"
     },
     {
+      "name": "pie-chart",
+      "title": "Pie and donut chart",
+      "category": "Data display",
+      "status": "experimental",
+      "origin": "library",
+      "description": "A pie or donut drawn with the theme chart colours (--chart-1 to --chart-8), with a legend that lists every value in words. The legend is the data: components.js reads each item's data-value and draws the slices, so the chart follows the theme.",
+      "whenToUse": "Shares of one whole with 2 to 6 parts (budget by channel, volume by market). For more parts, or to compare sizes across groups, use a bar chart or a table. Put the chart in a card body or an accordion section; it sits flush there.",
+      "variants": [
+        {
+          "class": "tx-pie",
+          "description": "Pie with legend. Wrap in <figure class=\"tx-pie\" data-tx-pie>; each tx-pie__item has data-value (any unit). Slice colours follow item order."
+        },
+        {
+          "class": "tx-pie--donut",
+          "description": "Donut with the total in the centre (tx-pie__center)."
+        },
+        {
+          "class": "tx-pie__share",
+          "description": "Optional empty span in a legend item; the script fills in its percentage of the total."
+        },
+        {
+          "class": "tx-pie--sm",
+          "description": "Smaller chart (120px) for tight spaces."
+        }
+      ],
+      "a11y": "The chart is role=\"img\" with an aria-label the script writes from the legend (for example 'TV 38%, Digital 27%…'), and the legend shows every label and value as text, so colour is never the only cue. Keep the figcaption as the chart's name.",
+      "replaces": [
+        ".pie",
+        ".donut",
+        ".chart-pie"
+      ],
+      "owner": "Muthu",
+      "since": "1.1.0",
+      "classes": [
+        "tx-pie",
+        "tx-pie--sm",
+        "tx-pie__caption",
+        "tx-pie__chart",
+        "tx-pie--donut",
+        "tx-pie__center",
+        "tx-pie__total",
+        "tx-pie__center-label",
+        "tx-pie__legend",
+        "tx-pie__item",
+        "tx-pie__swatch",
+        "tx-pie__label",
+        "tx-pie__value",
+        "tx-pie__share"
+      ],
+      "examples": [
+        "Pie chart",
+        "Donut chart with total"
+      ],
+      "path": "ui/twinx/components/pie-chart"
+    },
+    {
       "name": "empty-state",
       "title": "Empty state",
       "category": "Feedback",
@@ -475,6 +531,53 @@
         "Filters above a table"
       ],
       "path": "ui/twinx/components/filter-bar"
+    },
+    {
+      "name": "accordion",
+      "title": "Accordion",
+      "category": "Layout",
+      "status": "experimental",
+      "origin": "library",
+      "description": "A framed list of sections that open and close, built on native <details> and <summary>. Each section has a title, optional meta text on the right and a chevron.",
+      "whenToUse": "Several blocks of related content where the reader usually needs one or two at a time (results by metric, FAQ, settings groups). The accordion is the block's one container: put it straight in tx-main__body, or inside a tx-card where it sits flush. Use tabs instead when the sections are peers the reader switches between.",
+      "variants": [
+        {
+          "class": "tx-accordion",
+          "description": "The framed list. Children are tx-accordion__item <details> elements; add the open attribute to start a section expanded."
+        },
+        {
+          "class": "tx-accordion__meta",
+          "description": "Short muted text on the right of a summary (a count, a date, a status)."
+        },
+        {
+          "class": "tx-accordion--flush",
+          "description": "No frame, for use inside a card body (applied automatically inside tx-card)."
+        }
+      ],
+      "a11y": "Native <details>/<summary> gives keyboard (Enter/Space) and screen-reader expanded state with no script. Put a heading element inside the summary title so the sections appear in the page outline. The chevron is decorative (aria-hidden).",
+      "replaces": [
+        ".accordion",
+        ".collapsible",
+        ".family-toggle"
+      ],
+      "owner": "Muthu",
+      "since": "1.1.0",
+      "classes": [
+        "tx-accordion",
+        "tx-accordion__item",
+        "tx-accordion__summary",
+        "tx-accordion__title",
+        "tx-accordion__subtitle",
+        "tx-accordion__meta",
+        "tx-accordion__chevron",
+        "tx-accordion__body",
+        "tx-accordion--flush",
+        "tx-card"
+      ],
+      "examples": [
+        "Accordion"
+      ],
+      "path": "ui/twinx/components/accordion"
     },
     {
       "name": "app-shell",

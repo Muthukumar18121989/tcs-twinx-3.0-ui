@@ -122,6 +122,7 @@ export function catalogHtml({ comps, version, catalogFile, libDir, localDir, has
   </main>
 </div>
 <script src="${rel(path.join(libDir, 'js/twinx.js'))}"></script>
+<script src="${rel(path.join(libDir, 'js/components.js'))}"></script>
 ${hasLocalJs ? `<script src="${rel(path.join(localDir, 'local.js'))}"></script>` : ''}
 <script>
 (function () {

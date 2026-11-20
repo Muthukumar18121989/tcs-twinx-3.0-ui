@@ -196,10 +196,18 @@
   --chart-2: var(--c-gold);
   --chart-3: var(--c-green);
   --chart-4: var(--c-red);
-  --chart-5: var(--c-amber);
-  --chart-6: var(--c-slate);
+  --chart-5: var(--c-slate);          /* slate before amber: in porcelain and bordeaux amber equals gold */
+  --chart-6: var(--c-amber);
   --chart-7: var(--c-brand-lt);
   --chart-8: var(--c-gold-dk);
+}
+/* onyx: brand, gold and amber are all champagne, so neighbouring slices would look the same */
+[data-cxo-theme="onyx"] {
+  --chart-1: var(--c-gold);
+  --chart-2: var(--c-slate);
+  --chart-5: color-mix(in srgb, var(--c-ink2) 55%, var(--c-card));
+  --chart-6: color-mix(in srgb, var(--c-slate) 55%, var(--c-card));
+  --chart-7: var(--c-amber);
 }
 
 :root {
