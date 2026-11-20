@@ -48,6 +48,16 @@ A single figure with a micro label and an optional change indicator. Tiles sit i
 - **Accessibility:** Say the direction in words too (for example '+4.2% vs last year'), not only with colour or an arrow.
 - **Replaces old classes:** `.rp-tile`, `.an-tile`, `.trend-tile`, `.rm-count`
 
+### Pie and donut chart `pie-chart`
+
+A pie or donut drawn with the theme chart colours (--chart-1 to --chart-8), with a legend that lists every value in words. The legend is the data: components.js reads each item's data-value and draws the slices, so the chart follows the theme.
+
+- **When to use:** Shares of one whole with 2 to 6 parts (budget by channel, volume by market). For more parts, or to compare sizes across groups, use a bar chart or a table. Put the chart in a card body or an accordion section; it sits flush there.
+- **Markup:** `ui/twinx/components/pie-chart/pie-chart.html`
+- **Variants:** `tx-pie` Pie with legend. Wrap in <figure class="tx-pie" data-tx-pie>; each tx-pie__item has data-value (any unit). Slice colours follow item order.; `tx-pie--donut` Donut with the total in the centre (tx-pie__center).; `tx-pie__share` Optional empty span in a legend item; the script fills in its percentage of the total.; `tx-pie--sm` Smaller chart (120px) for tight spaces.
+- **Accessibility:** The chart is role="img" with an aria-label the script writes from the legend (for example 'TV 38%, Digital 27%…'), and the legend shows every label and value as text, so colour is never the only cue. Keep the figcaption as the chart's name.
+- **Replaces old classes:** `.pie`, `.donut`, `.chart-pie`
+
 ## Feedback
 
 ### Empty state `empty-state`
@@ -101,6 +111,16 @@ A row of filter fields that grow to fill the width, with the search and reset ac
 - **Replaces old classes:** `.filters`, `.filters__fields`, `.filters__actions`, `.rp-filters`
 
 ## Layout
+
+### Accordion `accordion`
+
+A framed list of sections that open and close, built on native <details> and <summary>. Each section has a title, optional meta text on the right and a chevron.
+
+- **When to use:** Several blocks of related content where the reader usually needs one or two at a time (results by metric, FAQ, settings groups). The accordion is the block's one container: put it straight in tx-main__body, or inside a tx-card where it sits flush. Use tabs instead when the sections are peers the reader switches between.
+- **Markup:** `ui/twinx/components/accordion/accordion.html`
+- **Variants:** `tx-accordion` The framed list. Children are tx-accordion__item <details> elements; add the open attribute to start a section expanded.; `tx-accordion__meta` Short muted text on the right of a summary (a count, a date, a status).; `tx-accordion--flush` No frame, for use inside a card body (applied automatically inside tx-card).
+- **Accessibility:** Native <details>/<summary> gives keyboard (Enter/Space) and screen-reader expanded state with no script. Put a heading element inside the summary title so the sections appear in the page outline. The chevron is decorative (aria-hidden).
+- **Replaces old classes:** `.accordion`, `.collapsible`, `.family-toggle`
 
 ### App shell and menu bar `app-shell`
 

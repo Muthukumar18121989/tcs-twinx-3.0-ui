@@ -1,0 +1,34 @@
+{
+  "name": "pie-chart",
+  "title": "Pie and donut chart",
+  "category": "Data display",
+  "description": "A pie or donut drawn with the theme chart colours (--chart-1 to --chart-8), with a legend that lists every value in words. The legend is the data: components.js reads each item's data-value and draws the slices, so the chart follows the theme.",
+  "whenToUse": "Shares of one whole with 2 to 6 parts (budget by channel, volume by market). For more parts, or to compare sizes across groups, use a bar chart or a table. Put the chart in a card body or an accordion section; it sits flush there.",
+  "variants": [
+    {
+      "class": "tx-pie",
+      "description": "Pie with legend. Wrap in <figure class=\"tx-pie\" data-tx-pie>; each tx-pie__item has data-value (any unit). Slice colours follow item order."
+    },
+    {
+      "class": "tx-pie--donut",
+      "description": "Donut with the total in the centre (tx-pie__center)."
+    },
+    {
+      "class": "tx-pie__share",
+      "description": "Optional empty span in a legend item; the script fills in its percentage of the total."
+    },
+    {
+      "class": "tx-pie--sm",
+      "description": "Smaller chart (120px) for tight spaces."
+    }
+  ],
+  "a11y": "The chart is role=\"img\" with an aria-label the script writes from the legend (for example 'TV 38%, Digital 27%…'), and the legend shows every label and value as text, so colour is never the only cue. Keep the figcaption as the chart's name.",
+  "replaces": [
+    ".pie",
+    ".donut",
+    ".chart-pie"
+  ],
+  "status": "experimental",
+  "since": "1.1.0",
+  "owner": "Muthu"
+}

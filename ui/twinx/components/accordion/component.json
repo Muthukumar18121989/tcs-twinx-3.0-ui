@@ -1,0 +1,30 @@
+{
+  "name": "accordion",
+  "title": "Accordion",
+  "category": "Layout",
+  "description": "A framed list of sections that open and close, built on native <details> and <summary>. Each section has a title, optional meta text on the right and a chevron.",
+  "whenToUse": "Several blocks of related content where the reader usually needs one or two at a time (results by metric, FAQ, settings groups). The accordion is the block's one container: put it straight in tx-main__body, or inside a tx-card where it sits flush. Use tabs instead when the sections are peers the reader switches between.",
+  "variants": [
+    {
+      "class": "tx-accordion",
+      "description": "The framed list. Children are tx-accordion__item <details> elements; add the open attribute to start a section expanded."
+    },
+    {
+      "class": "tx-accordion__meta",
+      "description": "Short muted text on the right of a summary (a count, a date, a status)."
+    },
+    {
+      "class": "tx-accordion--flush",
+      "description": "No frame, for use inside a card body (applied automatically inside tx-card)."
+    }
+  ],
+  "a11y": "Native <details>/<summary> gives keyboard (Enter/Space) and screen-reader expanded state with no script. Put a heading element inside the summary title so the sections appear in the page outline. The chevron is decorative (aria-hidden).",
+  "replaces": [
+    ".accordion",
+    ".collapsible",
+    ".family-toggle"
+  ],
+  "status": "experimental",
+  "since": "1.1.0",
+  "owner": "Muthu"
+}
