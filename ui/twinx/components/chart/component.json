@@ -1,0 +1,24 @@
+{
+  "name": "chart",
+  "title": "Chart colours, legend and donut",
+  "category": "Data display",
+  "description": "Theme-aware chart series (var(--chart-1) … var(--chart-8), brand first), an SVG donut and a legend whose text stays ink while only the swatch carries the colour. Canvas chart libraries read the same colours with TwinX.chartColors(n) and redraw on TwinX.onTheme(fn).",
+  "whenToUse": "Any chart, donut, legend or coloured series. Never pick series colours yourself and never colour legend text: series 1 is always the brand colour, then gold, green, red, amber, slate. Put the chart inside one titled tx-card (no frame around the chart itself).",
+  "variants": [
+    { "class": "tx-donut", "description": "SVG donut (viewBox 0 0 36 36, r 15.915 so dasharray values are percentages)." },
+    { "class": "tx-donut--sm", "description": "Smaller donut for side-by-side layouts." },
+    { "class": "tx-donut__center", "description": "Total and micro label in the middle of the donut." },
+    { "class": "tx-series-1", "description": "Series colour 1 to 8 (tx-series-1 … tx-series-8) for slices, swatches, bars and fills." },
+    { "class": "tx-legend", "description": "Legend row; tx-legend--stack for a vertical list." },
+    { "class": "tx-chart--row", "description": "Chart and legend side by side." }
+  ],
+  "a11y": "Give the svg role=\"img\" and an aria-label that states every value. The legend repeats the values in text, so colour is never the only cue.",
+  "replaces": [
+    ".chart-legend",
+    ".legend",
+    ".donut"
+  ],
+  "status": "experimental",
+  "since": "1.1.0",
+  "owner": "Muthu"
+}

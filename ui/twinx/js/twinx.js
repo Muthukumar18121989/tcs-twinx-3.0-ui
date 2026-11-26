@@ -5,7 +5,7 @@
      - the colour theme menu    (data-tx-theme-open)
      - tabs and segmented       (data-tx-tabs, data-tx-segmented)
      - dialogs                  (data-tx-open="dialog-id", data-tx-close)
-   and it exposes window.TwinX: toast(), setTheme(), THEMES.
+   and it exposes window.TwinX: toast(), setTheme(), THEMES, token(), chartColors(), onTheme().
    Saved per browser in localStorage: "twinx-theme", "twinx-nav-pinned". */
 (function () {
   'use strict';
@@ -13,13 +13,19 @@
   var KEY_THEME = 'twinx-theme', KEY_PIN = 'twinx-nav-pinned';
   function store(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
 
-  /* ── themes: the five CXO palettes in tokens/tokens.css ─────────────────── */
+  /* ── themes: the eleven CXO palettes in tokens/tokens.css ─────────────────── */
   var THEMES = [
     { key: 'wallStreet', name: 'Wall Street Executive', desc: 'Cream, deep navy, champagne gold' },
     { key: 'onyx', name: 'Onyx Midnight', desc: 'Black onyx, warm champagne accents' },
     { key: 'porcelain', name: 'Porcelain', desc: 'Pure white minimalism, graphite & ochre' },
     { key: 'bordeaux', name: 'Bordeaux Estate', desc: 'Wine, parchment, antique brass' },
-    { key: 'upsBrand', name: 'UPS Shield', desc: 'Pullman brown, gold, warm tan' }
+    { key: 'upsBrand', name: 'UPS Shield', desc: 'Pullman brown, gold, warm tan' },
+    { key: 'twinx', name: 'TwinX Default', desc: 'Violet indigo, teal accent, clean cloud console' },
+    { key: 'usbBrand', name: 'Meridian', desc: 'Muted navy, brick accent, soft paper' },
+    { key: 'torque', name: 'Torque', desc: 'Service navy, cobalt, instrument amber' },
+    { key: 'slipstream', name: 'Slipstream', desc: 'Azure, aqua, glass-blue panels' },
+    { key: 'graphite', name: 'Graphite Works', desc: 'Steel, cool white, signal ochre' },
+    { key: 'nightShift', name: 'Night Shift', desc: 'After-hours graphite, cobalt, warm amber' }
   ];
   function setTheme(key) {
     if (!THEMES.some(function (t) { return t.key === key; })) return;
@@ -175,7 +181,18 @@
     return el;
   }
 
+  /* ── tokens for code that cannot read CSS variables (canvas charts: Chart.js, ECharts, Highcharts…) ──
+     TwinX.token('--c-ink') gives the current theme's value; TwinX.chartColors(n) gives --chart-1…n in order.
+     Read them again on the 'twinx:theme' event (TwinX.onTheme(fn) does both) so charts follow the theme. */
+  function token(name) { return getComputedStyle(root).getPropertyValue(name).trim(); }
+  function chartColors(n) {
+    var out = [], count = n || 8;
+    for (var i = 0; i < count; i++) out.push(token('--chart-' + ((i % 8) + 1)));
+    return out;
+  }
+  function onTheme(fn) { fn(currentTheme()); document.addEventListener('twinx:theme', function (e) { fn(e.detail.theme); }); }
+
   function init() { shell(); themeMenu(); tabs(); dialogs(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
-  window.TwinX = { THEMES: THEMES, setTheme: setTheme, toast: toast, initTabs: tabs, version: '1.0.0' };
+  window.TwinX = { THEMES: THEMES, setTheme: setTheme, toast: toast, initTabs: tabs, token: token, chartColors: chartColors, onTheme: onTheme, version: '1.1.0' };
 })();

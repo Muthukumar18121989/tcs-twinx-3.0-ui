@@ -9,7 +9,7 @@
    `node ui/twinx/cli/bin/twinx-ui.mjs contribute <name>`. This clones the TwinX library repo, adds the
    component (or merges the variant into the component it extends), rebuilds the library catalog, and opens a
    pull request with the GitHub CLI (`gh`). Without push access it uses a fork.
-4. **Review.** The library owner (Muthu) reviews the pull request in all five themes and merges it. Merging is the
+4. **Review.** The library owner (Muthu) reviews the pull request in all eleven themes and merges it. Merging is the
    approval: the component becomes part of `twinx.css` in the next release tag.
 5. **Update.** `node ui/twinx/cli/bin/twinx-ui.mjs update v1.x.y` (or `npx github:Muthukumar18121989/tcs-twinx-3.0-ui#v1.x.y sync`)
    brings the new version in. Delete your local copy once the library has it (sync tells you).

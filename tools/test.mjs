@@ -19,7 +19,7 @@ execFileSync('git', ['init', '-q'], { cwd: dir });
 fs.writeFileSync(path.join(dir, 'AGENTS.md'), '# Sample project\n\nExisting notes stay.\n');
 let r = run(CLI, ['sync']);
 ok(r.status === 0, 'sync runs' + (r.status ? ': ' + r.stderr : ''));
-for (const f of ['ui/twinx/twinx.css', 'ui/twinx/js/twinx.js', 'ui/twinx/registry.json', 'ui/twinx/.manifest.json', 'ui/twinx/cli/bin/twinx-ui.mjs', 'ui/local/local.css', 'ui/local/registry.json', 'ui/catalog.html', '.claude/skills/twinx-ui/SKILL.md', '.claude/skills/twinx-ui/reference/components.md', '.agent/skills/twinx-ui/SKILL.md', '.agent/rules/twinx-ui.md', '.claude/settings.json', '.github/workflows/twinx-ui.yml', '.twinxignore', 'CLAUDE.md'])
+for (const f of ['ui/twinx/twinx.css', 'ui/twinx/js/twinx.js', 'ui/twinx/registry.json', 'ui/twinx/.manifest.json', 'ui/twinx/cli/bin/twinx-ui.mjs', 'ui/local/local.css', 'ui/local/registry.json', 'ui/catalog.html', '.claude/skills/twinx-ui/SKILL.md', '.claude/skills/twinx-ui-audit/SKILL.md', '.agent/skills/twinx-ui-audit/SKILL.md', '.claude/skills/twinx-ui/reference/components.md', '.agent/skills/twinx-ui/SKILL.md', '.agent/rules/twinx-ui.md', '.claude/settings.json', '.github/workflows/twinx-ui.yml', '.twinxignore', 'CLAUDE.md'])
   ok(fs.existsSync(path.join(dir, f)), `sync wrote ${f}`);
 ok(JSON.parse(fs.readFileSync(path.join(dir, 'ui/twinx/VERSION.json'), 'utf8')).repository === 'https://github.com/Muthukumar18121989/tcs-twinx-3.0-ui', 'VERSION.json records the full library repo URL (used by update and contribute)');
 const agents = fs.readFileSync(path.join(dir, 'AGENTS.md'), 'utf8');
@@ -39,6 +39,14 @@ ok(r.status === 0, 'generated files are up to date after sync');
 fs.writeFileSync(path.join(dir, 'bad.html'), '<style>.box{color:#fff;background:rgba(0,0,0,.2)}</style><div class="tx-card tx-fancy-panel" style="border-color: white"></div>');
 r = run(local(), ['lint', 'bad.html']);
 ok(r.status === 1 && /color-literal/.test(r.stdout) && /tx-fancy-panel/.test(r.stdout), 'lint catches colour literals and unknown tx- classes');
+// rule: chart colours and repeated primary buttons (the Decision Lab audit)
+fs.writeFileSync(path.join(dir, 'chart.html'), '<svg class="tx-donut" viewBox="0 0 36 36"><circle class="tx-donut__slice" stroke="#0F7BC4"/></svg><table class="tx-table"><tr><td><button class="tx-btn tx-btn--primary">Results</button></td></tr></table><script>new Chart(el, { data: { datasets: [{ backgroundColor: ["#8B5CF6"] }] } });</script>');
+r = run(local(), ['lint', 'chart.html']);
+ok(r.status === 1 && /chart-color/.test(r.stdout) && /script-color/.test(r.stdout) && /primary-in-row/.test(r.stdout), 'lint catches fixed chart colours, colours in chart code and primary buttons in table rows');
+fs.writeFileSync(path.join(dir, 'chart.html'), '<svg class="tx-donut" viewBox="0 0 36 36"><circle class="tx-donut__slice tx-series-2"/></svg><ul class="tx-legend"><li class="tx-legend__item tx-series-2"><span class="tx-legend__swatch"></span>Generics</li></ul><table class="tx-table"><tr><td><button class="tx-btn tx-btn--sm">Results</button></td></tr></table><script>new Chart(el, { data: { datasets: [{ backgroundColor: TwinX.chartColors(3) }] } });</script>');
+r = run(local(), ['lint', 'chart.html']);
+ok(r.status === 0 && !/warn /.test(r.stdout), 'the same chart built from tx-donut, tx-legend and TwinX.chartColors() is clean' + (r.status ? '\n' + r.stdout : ''));
+fs.rmSync(path.join(dir, 'chart.html'));
 // rule: restyling a library class in page CSS
 fs.writeFileSync(path.join(dir, 'page.css'), '.tx-btn--primary { border-radius: 0; }\n.grid { display: grid; gap: var(--s-lg); }\n');
 r = run(local(), ['lint', 'page.css']);

@@ -1,0 +1,31 @@
+<!-- @example: Donut with legend -->
+<div class="tx-chart">
+  <div class="tx-donut-wrap">
+    <svg class="tx-donut" viewBox="0 0 36 36" role="img" aria-label="196 customer twins: Community Health Centers 42%, Hospitals and Health Systems 35%, Retail Alliances 23%">
+      <circle class="tx-donut__track" cx="18" cy="18" r="15.915"/>
+      <circle class="tx-donut__slice tx-series-1" cx="18" cy="18" r="15.915" stroke-dasharray="42 58" stroke-dashoffset="0"/>
+      <circle class="tx-donut__slice tx-series-2" cx="18" cy="18" r="15.915" stroke-dasharray="35 65" stroke-dashoffset="-42"/>
+      <circle class="tx-donut__slice tx-series-3" cx="18" cy="18" r="15.915" stroke-dasharray="23 77" stroke-dashoffset="-77"/>
+    </svg>
+    <div class="tx-donut__center" aria-hidden="true"><span class="tx-donut__value">196</span><span class="tx-donut__label">Twins</span></div>
+  </div>
+  <ul class="tx-legend">
+    <li class="tx-legend__item tx-series-1"><span class="tx-legend__swatch" aria-hidden="true"></span>Community Health Centers <span class="tx-legend__value">42%</span></li>
+    <li class="tx-legend__item tx-series-2"><span class="tx-legend__swatch" aria-hidden="true"></span>Hospitals &amp; Health Systems <span class="tx-legend__value">35%</span></li>
+    <li class="tx-legend__item tx-series-3"><span class="tx-legend__swatch" aria-hidden="true"></span>Retail Alliances <span class="tx-legend__value">23%</span></li>
+  </ul>
+</div>
+
+<!-- @example: Single-series donut, legend beside it -->
+<div class="tx-chart tx-chart--row">
+  <div class="tx-donut-wrap">
+    <svg class="tx-donut tx-donut--sm" viewBox="0 0 36 36" role="img" aria-label="3,218 product twins, all Generics">
+      <circle class="tx-donut__track" cx="18" cy="18" r="15.915"/>
+      <circle class="tx-donut__slice tx-series-1" cx="18" cy="18" r="15.915" stroke-dasharray="100 0"/>
+    </svg>
+    <div class="tx-donut__center" aria-hidden="true"><span class="tx-donut__value">3,218</span><span class="tx-donut__label">SKUs</span></div>
+  </div>
+  <ul class="tx-legend tx-legend--stack">
+    <li class="tx-legend__item tx-series-1"><span class="tx-legend__swatch" aria-hidden="true"></span>Generics <span class="tx-legend__value">100%</span></li>
+  </ul>
+</div>

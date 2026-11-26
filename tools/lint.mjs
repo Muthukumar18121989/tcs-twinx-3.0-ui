@@ -5,12 +5,18 @@
 //   4. no tx-* class in markup that no component defines (do not invent names)
 //   5. no hand edits inside ui/twinx (it is replaced on every sync)
 //   6. every local component folder is complete (component.json, css, html examples)
+//   7. no colour literals in chart and SVG markup (fill="#…", stroke, stop-color) or in chart scripts (warning):
+//      series colours come from var(--chart-1…8) in CSS/SVG and TwinX.chartColors() in canvas chart code
+//   8. row actions in a table are not primary buttons (warning): one primary fill per view
 import fs from 'node:fs';
 import path from 'node:path';
 import { LIB_DIR, LOCAL_DIR, exists, read, walk, posix, readComponents, manifest } from './lib.mjs';
 
 const CSS_EXT = new Set(['.css', '.scss', '.less']);
 const MARKUP_EXT = new Set(['.html', '.htm', '.vue', '.jsx', '.tsx', '.svelte', '.astro']);
+const SCRIPT_EXT = new Set(['.js', '.mjs', '.cjs', '.ts', '.jsx', '.tsx', '.vue', '.svelte']);
+const ATTR_LITERAL = /(?<![-\w])(fill|stroke|stop-color|stopColor|flood-color|floodColor|color)\s*=\s*\{?\s*(["'`])\s*(#[0-9a-f]{3,8}\b|(rgba?|hsla?)\s*\(|(white|black)\s*\2)/gi;
+const JS_LITERAL = /(["'`])(#[0-9a-f]{3}|#[0-9a-f]{4}|#[0-9a-f]{6}|#[0-9a-f]{8}|(rgba?|hsla?)\s*\([^"'`]*\))\1/gi;
 const ALWAYS_SKIP = ['node_modules/', '.git/', 'dist/', 'build/', '.next/', 'coverage/', 'vendor/'];
 const COLOR_PROPS = /^(color|background(-color|-image)?|border(-(top|right|bottom|left))?(-color)?|outline(-color)?|fill|stroke|box-shadow|text-shadow|caret-color|accent-color|column-rule(-color)?|text-decoration(-color)?)$/i;
 const LITERAL = /#[0-9a-f]{3,8}\b|\b(rgba?|hsla?)\s*\(|(?<![-\w])(white|black)(?![-\w])/i;
@@ -74,8 +80,24 @@ export function lint({ root = process.cwd(), files = null, mode = 'consumer' } =
     if (generated.has(rel)) continue;
     if (mode === 'consumer' && inLib(rel)) continue; // covered by the manifest check
     const ext = path.extname(file).toLowerCase();
-    if (!CSS_EXT.has(ext) && !MARKUP_EXT.has(ext)) continue;
+    if (!CSS_EXT.has(ext) && !MARKUP_EXT.has(ext) && !SCRIPT_EXT.has(ext)) continue;
+    if (mode === 'library' && SCRIPT_EXT.has(ext) && !MARKUP_EXT.has(ext) && !inLib(rel)) continue; // the CLI's own scripts
     const text = read(file);
+
+    // 7b. colour literals in scripts (chart options, inline SVG strings): warn, they do not follow the theme
+    const scripts = SCRIPT_EXT.has(ext) && !MARKUP_EXT.has(ext) ? [{ js: text, offset: 0 }]
+      : [...text.matchAll(/<script\b(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/gi)].map((m) => ({ js: m[1], offset: m.index + m[0].indexOf(m[1]) }));
+    if (MARKUP_EXT.has(ext) && SCRIPT_EXT.has(ext)) scripts.push({ js: text, offset: 0 }); // .jsx/.tsx/.vue: the whole file is code
+    const seenJs = new Set();
+    for (const { js, offset } of scripts) {
+      const clean = js.replace(/\/\*[\s\S]*?\*\//g, (x) => x.replace(/[^\n]/g, ' ')).replace(/(^|[^:])\/\/[^\n]*/g, (x) => x.replace(/[^\n]/g, ' '));
+      for (const m of clean.matchAll(JS_LITERAL)) {
+        const line = lineOf(text, offset + m.index);
+        if (seenJs.has(line)) continue; seenJs.add(line);
+        add(file, line, 'script-color', `Colour literal ${m[2]} in code. Charts and inline styles must follow the theme: use TwinX.chartColors(n) for series, TwinX.token('--c-ink') for text and grid lines, and redraw on the 'twinx:theme' event (TwinX.onTheme(fn)). In SVG markup use fill="var(--chart-1)".`, 'warning');
+      }
+    }
+    if (!CSS_EXT.has(ext) && !MARKUP_EXT.has(ext)) continue;
 
     // CSS: in .css files and in <style> blocks
     const blocks = CSS_EXT.has(ext) ? [{ css: text, offset: 0 }] : [...text.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/gi)].map((m) => ({ css: m[1], offset: m.index + m[0].indexOf(m[1]) }));
@@ -101,6 +123,10 @@ export function lint({ root = process.cwd(), files = null, mode = 'consumer' } =
         const v = stripDataUris(m[2]);
         if (LITERAL.test(v) && /(color|background|border|fill|stroke|shadow)/i.test(v)) add(file, lineOf(text, m.index), 'color-literal', `Inline style with a colour literal: ${m[2].trim().slice(0, 80)}. Use a component class or a token.`);
       }
+      // 7a. colour literals as SVG / JSX attributes (donut slices, legend dots, sparklines)
+      for (const m of text.matchAll(ATTR_LITERAL)) add(file, lineOf(text, m.index), 'chart-color', `${m[1]} is set to the fixed colour ${m[3].replace(/\s*\($/, '(…)').replace(/\s*["'`]$/, '')}, so the chart ignores the theme. Use fill="var(--chart-1)" … var(--chart-8) for series (in order, brand first), var(--c-line) for tracks and var(--c-ink)/var(--c-muted) for text.`);
+      // 8. primary buttons repeated in table rows
+      for (const m of text.matchAll(/<td\b[^>]*>(?:(?!<\/td>)[\s\S])*?\btx-btn--primary\b/gi)) add(file, lineOf(text, m.index + m[0].lastIndexOf('tx-btn--primary')), 'primary-in-row', 'A primary (filled) button inside a table row repeats on every row. Keep one primary action per view: use tx-btn tx-btn--sm (or tx-btn--ghost) for row actions such as "Results" or "Open".', 'warning');
       if (known.size) {
         for (const m of text.matchAll(/class(?:Name)?\s*=\s*["'`]([^"'`]*)["'`]/g)) {
           for (const cls of m[1].split(/\s+/)) {
