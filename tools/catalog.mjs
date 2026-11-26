@@ -1,8 +1,8 @@
-// Generates the catalog page: every component, every example, live, in all five themes, with copy-markup buttons.
+// Generates the catalog page: every component, every example, live, in all eleven themes, with copy-markup buttons.
 import path from 'node:path';
 import { esc, posix, read, exists, GENERATED } from './lib.mjs';
 
-const THEMES = [['wallStreet', 'Wall Street'], ['onyx', 'Onyx (dark)'], ['porcelain', 'Porcelain'], ['bordeaux', 'Bordeaux'], ['upsBrand', 'UPS Shield']];
+const THEMES = [['wallStreet', 'Wall Street'], ['onyx', 'Onyx (dark)'], ['porcelain', 'Porcelain'], ['bordeaux', 'Bordeaux'], ['upsBrand', 'UPS Shield'], ['twinx', 'TwinX Default'], ['usbBrand', 'Meridian'], ['torque', 'Torque'], ['slipstream', 'Slipstream'], ['graphite', 'Graphite Works'], ['nightShift', 'Night Shift (dark)']];
 const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
 // catalogFile: where the page is written; libDir/localDir: folders it links to; patterns: [{title, file}]
@@ -68,7 +68,7 @@ export function catalogHtml({ comps, version, catalogFile, libDir, localDir, has
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>TwinX UI catalog</title>
-  <script>try{var t=localStorage.getItem("twinx-theme");if(/^(wallStreet|onyx|porcelain|bordeaux|upsBrand)$/.test(t))document.documentElement.setAttribute("data-cxo-theme",t)}catch(e){}</script>
+  <script>try{var t=localStorage.getItem("twinx-theme");if(/^(wallStreet|onyx|porcelain|bordeaux|upsBrand|twinx|usbBrand|torque|slipstream|graphite|nightShift)$/.test(t))document.documentElement.setAttribute("data-cxo-theme",t)}catch(e){}</script>
   <link rel="stylesheet" href="${rel(path.join(libDir, 'twinx.css'))}">
   ${hasLocalCss ? `<link rel="stylesheet" href="${rel(path.join(localDir, 'local.css'))}">` : ''}
   <style>
@@ -111,7 +111,7 @@ export function catalogHtml({ comps, version, catalogFile, libDir, localDir, has
       <div class="tx-page-header__text">
         <span class="tx-kicker">${esc(repoName || 'TCS TwinX 3.0 UI')}</span>
         <h1 class="tx-page-header__title">Component catalog</h1>
-        <p class="tx-page-header__lead">Every component in the library, live. Pick a theme to check it in all five CXO palettes, then copy the markup into your page. Pages link <code>ui/twinx/twinx.css</code>${hasLocalCss ? ' and <code>ui/local/local.css</code>' : ''} and load <code>ui/twinx/js/twinx.js</code>.</p>
+        <p class="tx-page-header__lead">Every component in the library, live. Pick a theme to check it in all eleven CXO palettes, then copy the markup into your page. Pages link <code>ui/twinx/twinx.css</code>${hasLocalCss ? ' and <code>ui/local/local.css</code>' : ''} and load <code>ui/twinx/js/twinx.js</code>.</p>
       </div>
       <div class="cat-themes" role="group" aria-label="Theme">
         <div class="tx-segmented" data-tx-segmented id="cat-theme">${THEMES.map(([k, n]) => `<button type="button" value="${k}" aria-pressed="false">${n}</button>`).join('')}</div>

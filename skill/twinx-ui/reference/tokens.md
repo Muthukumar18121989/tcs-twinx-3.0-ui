@@ -24,7 +24,7 @@ everything derived from it (tints, gradients, shadows) follows. Never write the 
 | `--c-gold-tint`, `--c-gold-hover`, `--c-gold-ring` | Selected row, hover wash, focus ring |
 | `--c-brand-tint`, `--c-brand-tint2`, `--c-ink-tint`, `--c-ink-tint2` | Opaque washes over the card (sticky headers, tracks) |
 | `--nav-text`, `--nav-text-quiet`, `--nav-fill`, `--nav-fill-hover`, `--nav-line` | Text, fills and lines on the dark menu bar |
-| `--chart-1` … `--chart-8` | Chart series, brand first |
+| `--chart-1` … `--chart-8` | Chart series in this order, brand first (brand, gold, green, red, amber, slate, brand-lt, gold-dk). Use the `chart` component (`tx-series-N`) in HTML/SVG and `TwinX.chartColors(n)` for canvas charts |
 
 Need a tint that is not listed? `color-mix(in srgb, var(--c-brand) 12%, transparent)`.
 
@@ -47,5 +47,7 @@ Need a tint that is not listed? `color-mix(in srgb, var(--c-brand) 12%, transpar
 ## Themes
 
 `wallStreet` (default: cream, navy, champagne gold), `onyx` (dark), `porcelain` (white, graphite, ochre),
-`bordeaux` (wine, parchment, brass), `upsBrand` (brown, gold, tan). Font presets via `data-cxo-font`:
+`bordeaux` (wine, parchment, brass), `upsBrand` (brown, gold, tan), `twinx` (TwinX Default: violet indigo, teal),
+`usbBrand` (Meridian: muted navy, brick), `torque` (navy, cobalt, amber), `slipstream` (azure, aqua),
+`graphite` (Graphite Works: steel, ochre), `nightShift` (dark: graphite, cobalt, amber). Font presets via `data-cxo-font`:
 `editorial` (default, serif titles), `classic`, `modern`.

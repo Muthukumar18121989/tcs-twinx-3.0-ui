@@ -14,5 +14,8 @@ This workspace uses the TwinX UI library. For any HTML, CSS, layout, styling or 
 4. Never edit `ui/twinx/`. New components and variants go in `ui/local/components/<name>/`
    (`node ui/twinx/cli/bin/twinx-ui.mjs new <name> [--extends <component>]`).
 5. Before finishing run `node ui/twinx/cli/bin/twinx-ui.mjs build` and `node ui/twinx/cli/bin/twinx-ui.mjs lint`
-   (0 errors), and check the page in the five themes.
-6. List any new local component in your summary and suggest `twinx-ui contribute <name>`.
+   (0 errors), and check the page in the theme menu (eleven themes, two of them dark).
+6. Chart and series colours are `var(--chart-1…8)` (SVG/CSS) or `TwinX.chartColors(n)` (canvas charts), never
+   fixed colours. Only one primary (filled) button per view; row actions are `tx-btn--sm`.
+7. To review or fix an existing page, follow `.agent/skills/twinx-ui-audit/SKILL.md`.
+8. List any new local component in your summary and suggest `twinx-ui contribute <name>`.

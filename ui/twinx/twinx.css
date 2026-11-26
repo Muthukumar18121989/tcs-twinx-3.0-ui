@@ -220,6 +220,163 @@
   --c-amber-bg: #FFF5D6;
 }
 
+/* ── six more themes from the TwinX 3.0 "All 11 Themes" plan ("Design System Changes" PDF).
+   Colours are read from the PDF swatches and mockups; tints, gradients and shadows derive below as for the five above. */
+
+/* TwinX Default: violet indigo, teal accent, clean cloud console */
+[data-cxo-theme="twinx"] {
+  --c-paper: #F5F5FA;
+  --c-card: #FFFFFF;
+  --c-ink: #182036;
+  --c-ink2: #3A4256;
+  --c-muted: #6A7385;
+  --c-faint: #A0A7B5;
+  --c-line: #E5E8F0;
+  --c-line2: #D3D8E3;
+  --c-brand: #5C4DE0;
+  --c-brand-lt: #7C74F0;
+  --c-gold: #0EA5A0;
+  --c-gold-dk: #0A6F68;
+  --c-nav-bg: #182036;
+  --c-nav-bg2: #222B45;
+  --c-green: #15925F;
+  --c-green-bg: #E5F5ED;
+  --c-red: #D93B47;
+  --c-red-bg: #FCE9EB;
+  --c-amber: #B7791F;
+  --c-amber-bg: #FAF2DE;
+  --c-slate: #64748B;
+}
+
+/* Meridian: muted navy, brick accent, soft paper */
+[data-cxo-theme="usbBrand"] {
+  --c-paper: #F5F5FA;
+  --c-card: #FFFFFF;
+  --c-ink: #182031;
+  --c-ink2: #3A4152;
+  --c-muted: #6F7889;
+  --c-faint: #A3AAB8;
+  --c-line: #E8E8F0;
+  --c-line2: #D5D7E2;
+  --c-brand: #2B4273;
+  --c-brand-lt: #51689A;
+  --c-gold: #B04A56;
+  --c-gold-dk: #8A3945;
+  --c-nav-bg: #22315C;
+  --c-nav-bg2: #2B3B69;
+  --c-green: #4A7D67;
+  --c-green-bg: #EDF5F2;
+  --c-red: #A84F59;
+  --c-red-bg: #F8EBEC;
+  --c-amber: #A07C44;
+  --c-amber-bg: #FAF2E8;
+}
+
+/* Torque: service navy, cobalt, instrument amber */
+[data-cxo-theme="torque"] {
+  --c-paper: #F7F7FA;
+  --c-card: #FFFFFF;
+  --c-ink: #0D141C;
+  --c-ink2: #2F3A47;
+  --c-muted: #64717F;
+  --c-faint: #9AA4AF;
+  --c-line: #E3E8ED;
+  --c-line2: #D0D7DF;
+  --c-brand: #0A5CA8;
+  --c-brand-lt: #2E7EC9;
+  --c-gold: #C6841A;
+  --c-gold-dk: #8F5D0F;
+  --c-nav-bg: #0B1B2E;
+  --c-nav-bg2: #12263D;
+  --c-green: #1F6B4F;
+  --c-green-bg: #E8F2ED;
+  --c-red: #B23B2E;
+  --c-red-bg: #FBEAE7;
+  --c-amber: #C6841A;
+  --c-amber-bg: #FAF0D9;
+}
+
+/* Slipstream: azure, aqua, glass-blue panels */
+[data-cxo-theme="slipstream"] {
+  --c-paper: #F2FAFF;
+  --c-card: #FFFFFF;
+  --c-ink: #0F1D28;
+  --c-ink2: #2E4352;
+  --c-muted: #5C7285;
+  --c-faint: #93A6B5;
+  --c-line: #DBEBF5;
+  --c-line2: #C5DCEA;
+  --c-brand: #007DC4;
+  --c-brand-lt: #2FA3E8;
+  --c-gold: #3FA888;
+  --c-gold-dk: #2A7A62;
+  --c-nav-bg: #05314E;
+  --c-nav-bg2: #0A4166;
+  --c-green: #2A7A62;
+  --c-green-bg: #E5F5F0;
+  --c-red: #BD4538;
+  --c-red-bg: #FCEBE8;
+  --c-amber: #B5811C;
+  --c-amber-bg: #FAF0D9;
+}
+
+/* Graphite Works: steel, cool white, signal ochre */
+[data-cxo-theme="graphite"] {
+  --c-paper: #F5F5F5;
+  --c-card: #FFFFFF;
+  --c-ink: #101315;
+  --c-ink2: #33383C;
+  --c-muted: #6A7176;
+  --c-faint: #A0A5A9;
+  --c-line: #E5E5E3;
+  --c-line2: #D3D3D0;
+  --c-brand: #3D4A54;
+  --c-brand-lt: #5A6975;
+  --c-gold: #B5791F;
+  --c-gold-dk: #85570F;
+  --c-nav-bg: #1C1F22;
+  --c-nav-bg2: #26292D;
+  --c-green: #2A6A4E;
+  --c-green-bg: #E8F2ED;
+  --c-red: #AB4033;
+  --c-red-bg: #FAEAE7;
+  --c-amber: #B5791F;
+  --c-amber-bg: #FAF0DB;
+}
+
+/* Night Shift (dark): after-hours graphite, cobalt, warm amber */
+[data-cxo-theme="nightShift"] {
+  --c-paper: #0D121A;
+  --c-card: #171C26;
+  --c-ink: #E9EDF2;
+  --c-ink2: #B8C1CC;
+  --c-muted: #828E9A;
+  --c-faint: #4E5865;
+  --c-line: #242B36;
+  --c-line2: #2F3744;
+  --c-brand: #4F9CE0;
+  --c-brand-lt: #7CB8EC;
+  --c-gold: #DDA34A;
+  --c-gold-dk: #B07C2B;
+  --c-nav-bg: #141C25;
+  --c-nav-bg2: #0F151D;
+  --c-green: #63B48E;
+  --c-green-bg: #0F241A;
+  --c-red: #E0786B;
+  --c-red-bg: #2C1513;
+  --c-amber: #DDA34A;
+  --c-amber-bg: #261C0A;
+  --c-on-brand: #0D121A;
+  --c-on-dark: #E9EDF2;
+  --c-slate: #8A94A6;
+  color-scheme: dark;
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, .5), 0 1px 1px rgba(0, 0, 0, .4);
+  --shadow-2: 0 6px 18px rgba(0, 0, 0, .55), 0 2px 6px rgba(0, 0, 0, .4);
+  --shadow-3: 0 24px 56px rgba(0, 0, 0, .7), 0 8px 20px rgba(0, 0, 0, .5);
+  --paper-shade: black 4%;
+  --card-shade: white 3%;
+}
+
 /* tokens derived from the palette (themes.js applyTheme) */
 :root, [data-cxo-theme] {
   /* tints (the design system writes these as colour + 2-digit alpha, e.g. `${C.gold}18`) */
@@ -389,6 +546,42 @@ th, td { padding: 0; font-weight: inherit; text-align: left; }
 /* a row of buttons: dialog footers, form actions */
 .tx-btn-group { display: flex; align-items: center; flex-wrap: wrap; gap: var(--s-sm); }
 .tx-btn-group--end { justify-content: flex-end; }
+
+/* ── chart [experimental] ── */
+/* Chart: theme-aware series colours, legend and an SVG donut.
+   Series colours are var(--chart-1) … var(--chart-8) in order (brand first), so every chart follows the theme.
+   Canvas libraries (Chart.js, ECharts…) read the same colours with TwinX.chartColors(n). */
+.tx-chart { display: flex; flex-direction: column; align-items: center; gap: var(--s-md); min-width: 0; }
+.tx-chart--row { flex-direction: row; justify-content: center; gap: var(--s-xl); }
+
+/* donut: <svg class="tx-donut"> with one circle per slice (stroke-dasharray), drawn on a --c-line track */
+.tx-donut { display: block; width: 132px; height: 132px; transform: rotate(-90deg); overflow: visible; }
+.tx-donut--sm { width: 96px; height: 96px; }
+.tx-donut__track { fill: none; stroke: var(--c-line); stroke-width: 5; }
+.tx-donut__slice { fill: none; stroke-width: 5; stroke: var(--chart-1); transition: stroke-width var(--m-fast) var(--ease); }
+.tx-donut__slice:hover { stroke-width: 6.5; }
+.tx-donut-wrap { position: relative; display: inline-grid; place-items: center; }
+.tx-donut__center { position: absolute; display: flex; flex-direction: column; align-items: center; text-align: center; pointer-events: none; }
+.tx-donut__value { font: 700 var(--t-h3)/1.1 var(--disp); color: var(--c-ink); }
+.tx-donut__label { font: 800 var(--t-micro)/1.4 var(--font); letter-spacing: .14em; text-transform: uppercase; color: var(--c-muted); }
+
+/* series modifiers: work on donut slices, legend swatches, bars and progress fills */
+.tx-series-1 { --series: var(--chart-1); }
+.tx-series-2 { --series: var(--chart-2); }
+.tx-series-3 { --series: var(--chart-3); }
+.tx-series-4 { --series: var(--chart-4); }
+.tx-series-5 { --series: var(--chart-5); }
+.tx-series-6 { --series: var(--chart-6); }
+.tx-series-7 { --series: var(--chart-7); }
+.tx-series-8 { --series: var(--chart-8); }
+.tx-donut__slice[class*="tx-series-"] { stroke: var(--series); }
+
+/* legend: text stays ink, only the swatch carries the series colour */
+.tx-legend { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--s-xs) var(--s-lg); margin: 0; padding: 0; list-style: none; }
+.tx-legend--stack { flex-direction: column; align-items: flex-start; }
+.tx-legend__item { display: inline-flex; align-items: center; gap: var(--s-sm); font: 500 var(--t-small)/1.4 var(--font); color: var(--c-ink2); }
+.tx-legend__swatch { width: 10px; height: 10px; flex: none; border-radius: 3px; background: var(--series, var(--chart-1)); }
+.tx-legend__value { font: 700 var(--t-small)/1.4 var(--disp); color: var(--c-ink); font-variant-numeric: tabular-nums; }
 
 /* ── context-bar [stable] ── */
 /* Context bar (the navy band of facts) */
@@ -694,7 +887,7 @@ th, td { padding: 0; font-weight: inherit; text-align: left; }
 }
 
 /* colour theme menu (opened by data-tx-theme-open) */
-.tx-theme-menu { position: fixed; z-index: var(--z-modal); width: 280px; padding: 8px; background: var(--c-card); border: 1px solid var(--c-line); border-radius: var(--rad-lg); box-shadow: var(--shadow-3); }
+.tx-theme-menu { position: fixed; z-index: var(--z-modal); width: 280px; max-height: calc(100vh - 16px); overflow-y: auto; padding: 8px; background: var(--c-card); border: 1px solid var(--c-line); border-radius: var(--rad-lg); box-shadow: var(--shadow-3); }
 .tx-theme-menu[hidden] { display: none; }
 .tx-theme-menu__title { margin: 4px 8px 8px; font: 800 var(--t-micro)/1.4 var(--font); letter-spacing: .14em; text-transform: uppercase; color: var(--c-muted); }
 .tx-theme-menu__item { display: flex; align-items: center; gap: 10px; width: 100%; padding: 8px; border: 0; border-radius: var(--rad-md); background: transparent; color: var(--c-ink); text-align: left; cursor: pointer; }

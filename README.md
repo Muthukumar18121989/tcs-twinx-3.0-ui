@@ -1,16 +1,16 @@
 # TCS TwinX 3.0 UI
 
 One design system and component library for every TwinX screen, built from the CXO design system (the same
-tokens, five colour themes and patterns as the Stellantis Promotool redesign). It ships with a skill for
+tokens and colour themes as the Stellantis Promotool redesign, now eleven themes). It ships with a skill for
 **Claude Code** and **Antigravity**, so BAs and UX designers who vibe code get the same components and styles,
 and anything new they make can come back into the library.
 
-- **Tokens and themes**: `ui/twinx/tokens/` (Wall Street, Onyx dark, Porcelain, Bordeaux, UPS Shield).
-- **19 components** with the `tx-` prefix: `ui/twinx/components/<name>/` (CSS, markup examples, `component.json`).
+- **Tokens and themes**: `ui/twinx/tokens/` (Wall Street, Onyx dark, Porcelain, Bordeaux, UPS Shield, TwinX Default, Meridian, Torque, Slipstream, Graphite Works, Night Shift dark).
+- **20 components** with the `tx-` prefix: `ui/twinx/components/<name>/` (CSS, markup examples, `component.json`).
 - **Page patterns**: `ui/twinx/patterns/` (page, list, form, detail).
 - **One stylesheet and one script**: `ui/twinx/twinx.css`, `ui/twinx/js/twinx.js`. Plain HTML, CSS and JS, no build step.
 - **Catalog**: `catalog.html`, every component live in every theme with copy-markup buttons.
-- **Skill and rules**: `skill/twinx-ui/` (copied to `.claude/skills/` and `.agent/skills/` in each project).
+- **Skills and rules**: `skill/twinx-ui/` (build with the library) and `skill/twinx-ui-audit/` (audit and fix a page that drifted: chart colours, badges, buttons, one-off markup), both copied to `.claude/skills/` and `.agent/skills/` in each project.
 - **The `twinx-ui` command**: sync, update, build, lint, new, contribute, and the Claude Code hooks.
 
 ## For BAs and UX designers: use it in your repo
@@ -32,6 +32,7 @@ That adds:
 | `ui/local/` | Your own and customised components |
 | `ui/catalog.html` | Catalog of library + local components |
 | `.claude/skills/twinx-ui/`, `.agent/skills/twinx-ui/` | The skill for Claude Code and Antigravity |
+| `.claude/skills/twinx-ui-audit/`, `.agent/skills/twinx-ui-audit/` | Audit-and-fix skill: ask "audit this page against TwinX" |
 | `.agent/rules/twinx-ui.md`, `AGENTS.md`, `CLAUDE.md` | Always-on rules pointing both tools at the skill |
 | `.claude/settings.json` | Hooks: lint after each edit, rebuild and check before Claude finishes |
 | `.github/workflows/twinx-ui.yml` | Pull request check (works for work from either tool) |

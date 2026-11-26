@@ -1,6 +1,6 @@
 {
   "generatedBy": "twinx-ui build",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "components": [
     {
       "name": "button",
@@ -78,6 +78,79 @@
         "Icon-only and small"
       ],
       "path": "ui/twinx/components/button"
+    },
+    {
+      "name": "chart",
+      "title": "Chart colours, legend and donut",
+      "category": "Data display",
+      "status": "experimental",
+      "origin": "library",
+      "description": "Theme-aware chart series (var(--chart-1) … var(--chart-8), brand first), an SVG donut and a legend whose text stays ink while only the swatch carries the colour. Canvas chart libraries read the same colours with TwinX.chartColors(n) and redraw on TwinX.onTheme(fn).",
+      "whenToUse": "Any chart, donut, legend or coloured series. Never pick series colours yourself and never colour legend text: series 1 is always the brand colour, then gold, green, red, amber, slate. Put the chart inside one titled tx-card (no frame around the chart itself).",
+      "variants": [
+        {
+          "class": "tx-donut",
+          "description": "SVG donut (viewBox 0 0 36 36, r 15.915 so dasharray values are percentages)."
+        },
+        {
+          "class": "tx-donut--sm",
+          "description": "Smaller donut for side-by-side layouts."
+        },
+        {
+          "class": "tx-donut__center",
+          "description": "Total and micro label in the middle of the donut."
+        },
+        {
+          "class": "tx-series-1",
+          "description": "Series colour 1 to 8 (tx-series-1 … tx-series-8) for slices, swatches, bars and fills."
+        },
+        {
+          "class": "tx-legend",
+          "description": "Legend row; tx-legend--stack for a vertical list."
+        },
+        {
+          "class": "tx-chart--row",
+          "description": "Chart and legend side by side."
+        }
+      ],
+      "a11y": "Give the svg role=\"img\" and an aria-label that states every value. The legend repeats the values in text, so colour is never the only cue.",
+      "replaces": [
+        ".chart-legend",
+        ".legend",
+        ".donut"
+      ],
+      "owner": "Muthu",
+      "since": "1.1.0",
+      "classes": [
+        "tx-chart",
+        "tx-chart--row",
+        "tx-donut",
+        "tx-donut--sm",
+        "tx-donut__track",
+        "tx-donut__slice",
+        "tx-donut-wrap",
+        "tx-donut__center",
+        "tx-donut__value",
+        "tx-donut__label",
+        "tx-series-1",
+        "tx-series-2",
+        "tx-series-3",
+        "tx-series-4",
+        "tx-series-5",
+        "tx-series-6",
+        "tx-series-7",
+        "tx-series-8",
+        "tx-legend",
+        "tx-legend--stack",
+        "tx-legend__item",
+        "tx-legend__swatch",
+        "tx-legend__value"
+      ],
+      "examples": [
+        "Donut with legend",
+        "Single-series donut, legend beside it"
+      ],
+      "path": "ui/twinx/components/chart"
     },
     {
       "name": "context-bar",
@@ -495,7 +568,7 @@
         },
         {
           "class": "data-tx-theme-open",
-          "description": "Button that opens the colour theme menu (five CXO themes)."
+          "description": "Button that opens the colour theme menu (eleven CXO themes)."
         },
         {
           "class": "html.is-nav-collapsed",

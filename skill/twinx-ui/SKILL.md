@@ -5,7 +5,7 @@ description: Build or change any screen, page, component or style with the TCS T
 
 # TCS TwinX 3.0 UI
 
-This repo uses the **TCS TwinX 3.0 UI** library: CXO design tokens with five colour themes, and ready-made
+This repo uses the **TCS TwinX 3.0 UI** library: CXO design tokens with eleven colour themes, and ready-made
 components with the `tx-` class prefix. Every screen anyone builds here must look like it came from the same
 product. Your job is to **reuse first, extend second, invent last**, and to leave anything new in a place where
 it can go back into the library.
@@ -49,8 +49,9 @@ it can go back into the library.
 7. **Check before you finish.**
    - `node ui/twinx/cli/bin/twinx-ui.mjs build` regenerates `ui/local/local.css`, the registry and the catalog.
    - `node ui/twinx/cli/bin/twinx-ui.mjs lint` must report 0 errors for the files you touched.
-   - Open the page and `ui/catalog.html` and check all five themes (palette button in the menu bar):
-     `wallStreet`, `onyx` (dark), `porcelain`, `bordeaux`, `upsBrand`.
+   - Open the page and `ui/catalog.html` and check the themes (palette button in the menu bar):
+     `wallStreet`, `onyx` (dark), `porcelain`, `bordeaux`, `upsBrand`, `twinx`, `usbBrand`, `torque`,
+     `slipstream`, `graphite`, `nightShift` (dark). At least check `wallStreet`, `twinx`, `onyx` and `nightShift`.
    - Check widths 1440, 1280, 1024, 768 and 390 px.
 8. **Say what you added.** In your reply and in the pull request, list any new component or variant in
    `ui/local` and suggest `twinx-ui contribute <name>` so the library owner can review it for everyone.
@@ -69,7 +70,13 @@ it can go back into the library.
   Headers of columns with column lines (`tx-table--lines`) are centred; otherwise they follow their column.
 - **The menu bar** is collapsed by default, opens on hover in place and pushes the content over (never on top),
   and the toggle pins it open. Do not change this behaviour.
-- **One primary button** per view or dialog. Destructive actions use `tx-btn--danger`.
+- **One primary button** per view or dialog. Row actions in a table ("Results", "Open") are `tx-btn--sm`, never a
+  primary repeated on every row. Destructive actions use `tx-btn--danger`.
+- **Charts follow the theme.** Series colours are `var(--chart-1)` … `var(--chart-8)` in order (brand first): use
+  the `chart` component (`tx-donut`, `tx-series-N`, `tx-legend`) for SVG, and `TwinX.chartColors(n)` with
+  `TwinX.onTheme(fn)` for canvas libraries. Legend text stays ink; only the swatch is coloured.
+- **Statuses use the same badge everywhere**: completed `tx-badge--success`, in progress `tx-badge--progress`,
+  pending `tx-badge--pending`, failed `tx-badge--danger`, draft `tx-badge--neutral`, counts `tx-badge--info`.
 - **Accessibility**: one `<h1>` per page (in `tx-page-header`), labels on every control, `aria-label` on
   icon-only buttons, status in words not only colour, native `<dialog>` for modals.
 - **No new dependencies or frameworks** for styling (no Tailwind, Bootstrap, UI kits, CSS-in-JS) unless the
@@ -84,5 +91,7 @@ it can go back into the library.
 - Tabs: wrap in `data-tx-tabs`; segmented control: `data-tx-segmented` (fires `twinx:change`).
 - Dialogs: `data-tx-open="<dialog id>"` and `data-tx-close`.
 - Toasts: `TwinX.toast('Saved', { tone: 'success' })`.
+- Theme values in code: `TwinX.chartColors(n)`, `TwinX.token('--c-line')`, `TwinX.onTheme(fn)` (runs now and on every theme change).
 
-See `reference/contributing.md` for how local components go back into the library.
+See `reference/contributing.md` for how local components go back into the library. To review or fix a page that
+already exists, use the `twinx-ui-audit` skill.

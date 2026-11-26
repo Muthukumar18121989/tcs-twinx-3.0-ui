@@ -125,7 +125,8 @@ function sync() {
   fs.mkdirSync(path.join(dest, LOCAL_DIR, 'components'), { recursive: true });
   if (!exists(path.join(dest, LOCAL_DIR, 'README.md'))) write(path.join(dest, LOCAL_DIR, 'README.md'), read(path.join(src, 'templates/local-README.md')));
   // 3. skill for Claude Code and Antigravity, rules for both, hooks for Claude Code
-  for (const s of ['.claude/skills/twinx-ui', '.agent/skills/twinx-ui']) { fs.rmSync(path.join(dest, s), { recursive: true, force: true }); copyDir(path.join(src, 'skill/twinx-ui'), path.join(dest, s)); }
+  for (const skill of fs.readdirSync(path.join(src, 'skill')).filter((d) => exists(path.join(src, 'skill', d, 'SKILL.md'))))
+    for (const s of [`.claude/skills/${skill}`, `.agent/skills/${skill}`]) { fs.rmSync(path.join(dest, s), { recursive: true, force: true }); copyDir(path.join(src, 'skill', skill), path.join(dest, s)); }
   write(path.join(dest, '.agent/rules/twinx-ui.md'), read(path.join(src, 'templates/agent-rules.md')));
   const block = read(path.join(src, 'templates/agents-block.md'));
   upsertBlock(path.join(dest, 'AGENTS.md'), block);
@@ -139,7 +140,7 @@ function sync() {
   const local = readComponents(path.join(dest, LOCAL_DIR), 'local');
   const libNames = new Set(readComponents(libDest, 'library').map((c) => c.name));
   log(`TCS TwinX 3.0 UI v${version} synced into ${dest}`);
-  log(`  ${LIB_DIR}/            library (do not edit)\n  ${LOCAL_DIR}/            your components (${local.length})\n  ui/catalog.html        live catalog\n  .claude/skills/twinx-ui, .agent/skills/twinx-ui, .agent/rules/twinx-ui.md, AGENTS.md, CLAUDE.md\n  .claude/settings.json  lint hooks${noCi ? '' : '\n  .github/workflows/twinx-ui.yml  pull request check'}`);
+  log(`  ${LIB_DIR}/            library (do not edit)\n  ${LOCAL_DIR}/            your components (${local.length})\n  ui/catalog.html        live catalog\n  .claude/skills/twinx-ui(-audit), .agent/skills/twinx-ui(-audit), .agent/rules/twinx-ui.md, AGENTS.md, CLAUDE.md\n  .claude/settings.json  lint hooks${noCi ? '' : '\n  .github/workflows/twinx-ui.yml  pull request check'}`);
   for (const c of local) if (!c.meta.extends && libNames.has(c.name)) log(`  note: ${LOCAL_DIR}/components/${c.name} now exists in the library. Compare them and delete your local copy.`);
   log(`\nLink in every page: ${LIB_DIR}/twinx.css, ${LOCAL_DIR}/local.css, and at the end of <body> ${LIB_DIR}/js/twinx.js`);
 }
